@@ -42,17 +42,7 @@ The files currently relevant to WP1 are:
 - IIIa_cod_1525846.cif
 - IIa_legacy_cod_1539811.cif
 - IIb_cod_1527302.cif
-- IIb_reconstructed.cif
-
-Note:
-
-`IIb_reconstructed.cif` is actually the reconstructed β-ZnIn2S4 structure.
-
-The filename is historical/misleading and should be interpreted accordingly.
-
-A clearer future filename would be:
-
-`beta_reconstructed_from_IIb.cif`
+- beta_reconstructed_from_IIb.cif
 
 ---
 
@@ -189,9 +179,7 @@ IIb_cod_1527302.cif
 
 ## Reconstructed file
 
-IIb_reconstructed.cif
-
-Despite its current filename, this file represents reconstructed β-ZnIn2S4.
+beta_reconstructed_from_IIb.cif
 
 ## Reconstruction provenance
 
@@ -414,7 +402,7 @@ READY AS A DIRECT DFT SEED
 |---|---|---:|---|
 | spinel | spinel_cod_7221365.cif | Yes | Full geometry optimisation |
 | α1 | IIIa_cod_1525846.cif | No | Resolve Zn/In disorder, generate α1, then optimise |
-| β | IIb_reconstructed.cif | Yes | Full geometry optimisation |
+| β | beta_reconstructed_from_IIb.cif | Yes | Full geometry optimisation |
 | IIa′ | IIa_legacy_cod_1539811.cif | Yes as transformation seed | Full unconstrained optimisation should generate IIa′ |
 | IIb | IIb_cod_1527302.cif | Yes | Full geometry optimisation |
 
