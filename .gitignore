@@ -1,0 +1,45 @@
+# macOS metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python environments, caches, and build artefacts
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+*.egg-info/
+
+# Editors and local workspace state
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Temporary and scheduler files
+*.tmp
+*.bak
+slurm-*.out
+*.stdout
+*.stderr
+
+# Licensed VASP pseudopotentials: never commit these files
+POTCAR
+POTCAR.*
+
+# Large or regenerable VASP runtime artefacts
+WAVECAR
+WAVEDER
+CHGCAR
+CHG
+PCDAT
+REPORT
+IBZKPT
