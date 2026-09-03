@@ -1,0 +1,38 @@
+SYSTEM = ZnIn2S4 bulk PBE-D3BJ relaxation
+
+# Electronic
+PREC   = Accurate
+ENCUT  = 500
+EDIFF  = 1E-6
+NELM   = 120
+ALGO   = Normal
+
+# Exchange-correlation / dispersion
+GGA    = PE
+IVDW   = 12
+
+# Occupation
+ISMEAR = 0
+SIGMA  = 0.05
+
+# Spin
+ISPIN  = 1
+
+# Ionic + cell relaxation
+IBRION = 2
+NSW    = 200
+ISIF   = 3
+EDIFFG = -0.01
+POTIM  = 0.5
+
+# Accuracy
+LREAL  = .FALSE.
+LASPH  = .TRUE.
+ADDGRID = .TRUE.
+
+# Symmetry
+ISYM   = 2
+
+# Output
+LWAVE  = .FALSE.
+LCHARG = .FALSE.
