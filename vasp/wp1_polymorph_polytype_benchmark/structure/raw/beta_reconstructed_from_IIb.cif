@@ -1,0 +1,48 @@
+data_beta_ZnIn2S4_reconstructed
+_audit_creation_date               2026-09-02
+_audit_creation_method
+;
+Reconstructed from the first complete septuple layer of
+IIb_cod_1527302.cif (COD 1527302). The parent c coordinate was halved from
+24.68 to 12.34 angstrom while preserving Cartesian intralayer separations.
+The parent 0.3333/0.6667 coordinates were snapped to exact thirds.
+;
+_chemical_formula_structural       'ZnIn2S4'
+_chemical_formula_sum              'In2 S4 Zn'
+_cell_formula_units_Z              1
+_space_group_name_H-M_alt          'P 3 m 1'
+_space_group_IT_number             156
+_cell_length_a                     3.850000
+_cell_length_b                     3.850000
+_cell_length_c                     12.340000
+_cell_angle_alpha                  90.000000
+_cell_angle_beta                   90.000000
+_cell_angle_gamma                  120.000000
+_cell_volume                       158.404403
+
+loop_
+_space_group_symop_id
+_space_group_symop_operation_xyz
+1 'x,y,z'
+2 '-y,x-y,z'
+3 '-x+y,-x,z'
+4 '-y,-x,z'
+5 '-x+y,y,z'
+6 'x,x-y,z'
+
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_symmetry_multiplicity
+_atom_site_Wyckoff_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+S1   S   1 a 0.0000000000 0.0000000000 0.1250000000 1.000000
+In2  In  1 b 0.3333333333 0.6666666667 0.1880000000 1.000000
+S2   S   1 b 0.3333333333 0.6666666667 0.3880000000 1.000000
+In1  In  1 c 0.6666666667 0.3333333333 0.5000000000 1.000000
+S3   S   1 a 0.0000000000 0.0000000000 0.6120000000 1.000000
+Zn1  Zn  1 a 0.0000000000 0.0000000000 0.8120000000 1.000000
+S4   S   1 c 0.6666666667 0.3333333333 0.8760000000 1.000000
