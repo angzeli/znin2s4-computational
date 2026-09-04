@@ -27,6 +27,7 @@ dist/
 # Temporary and scheduler files
 *.tmp
 *.bak
+*.sub
 slurm-*.out
 *.stdout
 *.stderr

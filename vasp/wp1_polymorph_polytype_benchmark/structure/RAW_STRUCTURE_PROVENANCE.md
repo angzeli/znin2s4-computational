@@ -34,7 +34,7 @@ The legacy experimental IIa structure is retained only as the starting structure
 
 Raw structures are stored in:
 
-/Users/liangze/Desktop/Imperial/Year 26-27/fyp/computational/vasp/wp1_polymorph_polytype_benchmark/structure/raw
+`vasp/wp1_polymorph_polytype_benchmark/structure/raw/`
 
 The files currently relevant to WP1 are:
 
