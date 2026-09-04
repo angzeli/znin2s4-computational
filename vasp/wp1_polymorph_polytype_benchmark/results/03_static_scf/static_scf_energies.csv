@@ -1,0 +1,6 @@
+structure,formula_units,total_energy_eV,energy_per_fu_eV,delta_E_all_meV_per_fu,delta_E_layered_meV_per_fu,kmesh,max_k_spacing_Ainv,external_pressure_kB_or_available_unit,electronic_iterations,converged,verdict
+spinel,8,-233.74241459,-29.217801824,0.000000,,4x4x4,0.147944,0.09,18,true,PASS WITH INTERPRETIVE CAVEAT
+alpha1,3,-86.24598186,-28.748660620,469.141204,6.351910,12x12x4,0.155688,0.10,19,true,PASS
+beta,1,-28.75501253,-28.755012530,462.789294,0.000000,12x12x4,0.155894,0.09,16,true,PASS
+IIa-prime,2,-57.45083623,-28.725418115,492.383709,29.594415,12x12x4,0.155438,-0.10,19,true,PASS
+IIb,2,-57.50299979,-28.751499895,466.301929,3.512635,12x12x4,0.155690,-0.29,19,true,PASS
