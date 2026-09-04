@@ -69,7 +69,7 @@ This is an active research workspace for the 2026–2027 Imperial College London
 
 ## License
 
-This repository is released under the MIT License.
+Original code and documentation in this repository are released under the MIT License. Source structures from the Crystallography Open Database (COD) retain their CC0/public-domain status and associated provenance. VASP outputs are provided as generated research data; neither VASP itself nor licensed `POTCAR` datasets are distributed here.
 
 ## Author
 
