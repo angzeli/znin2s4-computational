@@ -1,0 +1,78 @@
+structure,edge,energy_eV,kx,ky,kz,source,high_symmetry_label_or_segment,notes
+spinel,VBM,4.179865,0.50000000,0.50000000,0.00000000,dense_uniform_mesh,unlabelled uniform-mesh point,irreducible-mesh representative; weight=0.01388889
+spinel,CBM,5.497812,0.00000000,0.00000000,0.00000000,dense_uniform_mesh,GAMMA,irreducible-mesh representative; weight=0.00462963
+spinel,minimum_direct_gap,1.428139,0.00000000,0.00000000,0.00000000,dense_uniform_mesh,GAMMA,energy_eV is E_CBM(k)-E_VBM(k)
+spinel,VBM,4.183305,0.55769230,0.55769230,0.00000000,high_symmetry_path,K-GAMMA (t=0.256),path index=91; cumulative distance=0.96194305 Angstrom^-1
+spinel,VBM,4.183305,0.44230770,0.44230770,0.00000000,high_symmetry_path,K-GAMMA (t=0.410),path index=97; cumulative distance=1.05850824 Angstrom^-1
+spinel,CBM,5.497812,0.00000000,0.00000000,0.00000000,high_symmetry_path,GAMMA,path index=1; cumulative distance=0.00000000 Angstrom^-1
+spinel,CBM,5.497812,0.00000000,1.00000000,0.00000000,high_symmetry_path,X,path index=40; cumulative distance=0.59177648 Angstrom^-1
+alpha1,VBM,4.510352,0.00000000,0.00000000,0.00000000,dense_uniform_mesh,GAMMA,irreducible-mesh representative; weight=0.00051440
+alpha1,VBM,4.510352,0.00000000,0.00000000,0.16666670,dense_uniform_mesh,unlabelled uniform-mesh point,irreducible-mesh representative; weight=0.00102881
+alpha1,VBM,4.510352,0.00000000,0.00000000,0.33333330,dense_uniform_mesh,unlabelled uniform-mesh point,irreducible-mesh representative; weight=0.00102881
+alpha1,VBM,4.510352,0.00000000,0.00000000,0.50000000,dense_uniform_mesh,unlabelled uniform-mesh point,irreducible-mesh representative; weight=0.00051440
+alpha1,CBM,4.814550,0.00000000,0.00000000,0.00000000,dense_uniform_mesh,GAMMA,irreducible-mesh representative; weight=0.00051440
+alpha1,minimum_direct_gap,0.304198,0.00000000,0.00000000,0.00000000,dense_uniform_mesh,GAMMA,energy_eV is E_CBM(k)-E_VBM(k)
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.00000000,high_symmetry_path,GAMMA,path index=1; cumulative distance=0.00000000 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.03846154,high_symmetry_path,"GAMMA-T (t=0.026, near GAMMA)",path index=2; cumulative distance=0.00662185 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.07692308,high_symmetry_path,GAMMA-T (t=0.051),path index=3; cumulative distance=0.01324370 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.11538460,high_symmetry_path,GAMMA-T (t=0.077),path index=4; cumulative distance=0.01986555 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.15384620,high_symmetry_path,GAMMA-T (t=0.103),path index=5; cumulative distance=0.02648740 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.19230770,high_symmetry_path,GAMMA-T (t=0.128),path index=6; cumulative distance=0.03310925 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.23076920,high_symmetry_path,GAMMA-T (t=0.154),path index=7; cumulative distance=0.03973110 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.26923080,high_symmetry_path,GAMMA-T (t=0.179),path index=8; cumulative distance=0.04635295 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.30769230,high_symmetry_path,GAMMA-T (t=0.205),path index=9; cumulative distance=0.05297480 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.34615380,high_symmetry_path,GAMMA-T (t=0.231),path index=10; cumulative distance=0.05959665 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.38461540,high_symmetry_path,GAMMA-T (t=0.256),path index=11; cumulative distance=0.06621850 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.42307690,high_symmetry_path,GAMMA-T (t=0.282),path index=12; cumulative distance=0.07284034 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.46153850,high_symmetry_path,GAMMA-T (t=0.308),path index=13; cumulative distance=0.07946219 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.50000000,high_symmetry_path,GAMMA-T (t=0.333),path index=14; cumulative distance=0.08608404 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.53846150,high_symmetry_path,GAMMA-T (t=0.359),path index=15; cumulative distance=0.09270589 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.57692310,high_symmetry_path,GAMMA-T (t=0.385),path index=16; cumulative distance=0.09932774 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.61538460,high_symmetry_path,GAMMA-T (t=0.410),path index=17; cumulative distance=0.10594959 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.65384620,high_symmetry_path,GAMMA-T (t=0.436),path index=18; cumulative distance=0.11257144 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.69230770,high_symmetry_path,GAMMA-T (t=0.462),path index=19; cumulative distance=0.11919329 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.73076920,high_symmetry_path,GAMMA-T (t=0.487),path index=20; cumulative distance=0.12581514 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.76923080,high_symmetry_path,GAMMA-T (t=0.513),path index=21; cumulative distance=0.13243699 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.80769230,high_symmetry_path,GAMMA-T (t=0.538),path index=22; cumulative distance=0.13905884 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.84615380,high_symmetry_path,GAMMA-T (t=0.564),path index=23; cumulative distance=0.14568069 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.88461540,high_symmetry_path,GAMMA-T (t=0.590),path index=24; cumulative distance=0.15230254 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.92307690,high_symmetry_path,GAMMA-T (t=0.615),path index=25; cumulative distance=0.15892439 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,0.96153850,high_symmetry_path,GAMMA-T (t=0.641),path index=26; cumulative distance=0.16554624 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,1.00000000,high_symmetry_path,GAMMA-T (t=0.667),path index=27; cumulative distance=0.17216809 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,1.03846200,high_symmetry_path,GAMMA-T (t=0.692),path index=28; cumulative distance=0.17878994 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,1.07692300,high_symmetry_path,GAMMA-T (t=0.718),path index=29; cumulative distance=0.18541179 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,1.11538500,high_symmetry_path,GAMMA-T (t=0.744),path index=30; cumulative distance=0.19203364 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,1.15384600,high_symmetry_path,GAMMA-T (t=0.769),path index=31; cumulative distance=0.19865549 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,1.19230800,high_symmetry_path,GAMMA-T (t=0.795),path index=32; cumulative distance=0.20527734 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,1.23076900,high_symmetry_path,GAMMA-T (t=0.821),path index=33; cumulative distance=0.21189919 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,1.26923100,high_symmetry_path,GAMMA-T (t=0.846),path index=34; cumulative distance=0.21852103 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,1.30769200,high_symmetry_path,GAMMA-T (t=0.872),path index=35; cumulative distance=0.22514288 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,1.34615400,high_symmetry_path,GAMMA-T (t=0.897),path index=36; cumulative distance=0.23176473 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,1.38461500,high_symmetry_path,GAMMA-T (t=0.923),path index=37; cumulative distance=0.23838658 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,1.42307700,high_symmetry_path,GAMMA-T (t=0.949),path index=38; cumulative distance=0.24500843 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,1.46153800,high_symmetry_path,"GAMMA-T (t=0.974, near T)",path index=39; cumulative distance=0.25163028 Angstrom^-1
+alpha1,VBM,4.510353,0.00000000,0.00000000,1.50000000,high_symmetry_path,T,path index=40; cumulative distance=0.25825213 Angstrom^-1
+alpha1,CBM,4.814550,0.00000000,0.00000000,0.00000000,high_symmetry_path,GAMMA,path index=1; cumulative distance=0.00000000 Angstrom^-1
+alpha1,CBM,4.814550,0.00000000,0.00000000,1.00000000,high_symmetry_path,GAMMA-T (t=0.667),path index=27; cumulative distance=0.17216809 Angstrom^-1
+beta,VBM,4.533285,0.00000000,0.00000000,0.50000000,dense_uniform_mesh,A,irreducible-mesh representative; weight=0.00051440
+beta,CBM,4.836403,0.00000000,0.00000000,0.00000000,dense_uniform_mesh,GAMMA,irreducible-mesh representative; weight=0.00051440
+beta,minimum_direct_gap,0.304498,0.00000000,0.00000000,0.00000000,dense_uniform_mesh,GAMMA,energy_eV is E_CBM(k)-E_VBM(k)
+beta,VBM,4.533285,0.00000000,0.00000000,0.47435900,high_symmetry_path,GAMMA-A (t=0.949),path index=158; cumulative distance=2.80079486 Angstrom^-1
+beta,VBM,4.533285,0.00000000,0.00000000,0.48717950,high_symmetry_path,"GAMMA-A (t=0.974, near A)",path index=159; cumulative distance=2.80742565 Angstrom^-1
+beta,VBM,4.533285,0.00000000,0.00000000,0.50000000,high_symmetry_path,A,path index=160; cumulative distance=2.81405643 Angstrom^-1
+beta,CBM,4.836403,0.00000000,0.00000000,0.00000000,high_symmetry_path,GAMMA,path index=1; cumulative distance=0.00000000 Angstrom^-1
+IIa_prime,VBM,4.163139,0.11111110,0.05555556,0.00000000,dense_uniform_mesh,unlabelled uniform-mesh point,irreducible-mesh representative; weight=0.00617284
+IIa_prime,CBM,4.466713,0.00000000,0.00000000,0.00000000,dense_uniform_mesh,GAMMA,irreducible-mesh representative; weight=0.00051440
+IIa_prime,minimum_direct_gap,0.345533,0.00000000,0.00000000,0.00000000,dense_uniform_mesh,GAMMA,energy_eV is E_CBM(k)-E_VBM(k)
+IIa_prime,VBM,4.167719,0.08547009,0.08547009,0.00000000,high_symmetry_path,K-GAMMA (t=0.744),path index=110; cumulative distance=2.27185926 Angstrom^-1
+IIa_prime,CBM,4.466713,0.00000000,0.00000000,0.00000000,high_symmetry_path,GAMMA,path index=1; cumulative distance=0.00000000 Angstrom^-1
+IIb,VBM,4.504881,0.00000000,0.00000000,0.00000000,dense_uniform_mesh,GAMMA,irreducible-mesh representative; weight=0.00051440
+IIb,CBM,4.783519,0.00000000,0.00000000,0.00000000,dense_uniform_mesh,GAMMA,irreducible-mesh representative; weight=0.00051440
+IIb,minimum_direct_gap,0.278638,0.00000000,0.00000000,0.00000000,dense_uniform_mesh,GAMMA,energy_eV is E_CBM(k)-E_VBM(k)
+IIb,VBM,4.504881,0.00000000,0.00000000,0.00000000,high_symmetry_path,GAMMA,path index=1; cumulative distance=0.00000000 Angstrom^-1
+IIb,VBM,4.504881,0.00000000,0.00000000,0.01282051,high_symmetry_path,"GAMMA-A (t=0.026, near GAMMA)",path index=122; cumulative distance=2.55543242 Angstrom^-1
+IIb,VBM,4.504881,0.00000000,0.00000000,0.02564103,high_symmetry_path,GAMMA-A (t=0.051),path index=123; cumulative distance=2.55874034 Angstrom^-1
+IIb,VBM,4.504881,0.00000000,0.00000000,0.03846154,high_symmetry_path,GAMMA-A (t=0.077),path index=124; cumulative distance=2.56204825 Angstrom^-1
+IIb,VBM,4.504881,0.00000000,0.00000000,0.05128205,high_symmetry_path,GAMMA-A (t=0.103),path index=125; cumulative distance=2.56535617 Angstrom^-1
+IIb,VBM,4.504881,0.00000000,0.00000000,0.06410256,high_symmetry_path,GAMMA-A (t=0.128),path index=126; cumulative distance=2.56866409 Angstrom^-1
+IIb,CBM,4.783519,0.00000000,0.00000000,0.00000000,high_symmetry_path,GAMMA,path index=1; cumulative distance=0.00000000 Angstrom^-1
