@@ -1,0 +1,42 @@
+SYSTEM = ZnIn2S4 PBE band structure
+
+# Use converged charge density from 03_static_scf
+ISTART = 0
+ICHARG = 11
+
+# Electronic
+PREC   = Accurate
+ENCUT  = 500
+EDIFF  = 1E-7
+NELM   = 120
+ALGO   = Normal
+
+# Exchange-correlation
+GGA    = PE
+IVDW   = 12
+
+# Occupation
+ISMEAR = 0
+SIGMA  = 0.05
+
+# Spin
+ISPIN  = 1
+
+# Fixed geometry
+IBRION = -1
+NSW    = 0
+
+# Numerical accuracy
+LREAL   = .FALSE.
+LASPH   = .TRUE.
+ADDGRID = .TRUE.
+
+# Explicit band-path sampling
+ISYM = 0
+
+# Orbital projections
+LORBIT = 11
+
+# Output
+LWAVE  = .FALSE.
+LCHARG = .FALSE.

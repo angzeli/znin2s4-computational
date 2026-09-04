@@ -1,0 +1,42 @@
+SYSTEM = ZnIn2S4 DOS/PDOS
+
+# Start from converged charge density
+ISTART = 0
+ICHARG = 11
+
+# Electronic
+PREC   = Accurate
+ENCUT  = 500
+EDIFF  = 1E-7
+NELM   = 150
+ALGO   = Normal
+
+# XC / dispersion
+GGA    = PE
+IVDW   = 12
+
+# Occupation
+ISMEAR = -5
+
+# Spin
+ISPIN  = 1
+
+# Fixed geometry
+IBRION = -1
+NSW    = 0
+
+# Accuracy
+LREAL   = .FALSE.
+LASPH   = .TRUE.
+ADDGRID = .TRUE.
+
+# DOS / projections
+LORBIT = 11
+NEDOS  = 3000
+
+# Symmetry
+ISYM = 2
+
+# Output
+LWAVE  = .FALSE.
+LCHARG = .FALSE.
