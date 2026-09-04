@@ -1,0 +1,28 @@
+SYSTEM = ZnIn2S4 PBE WAVECAR bootstrap
+
+ISTART = 0
+ICHARG = 1
+
+PREC   = Accurate
+ENCUT  = 500
+EDIFF  = 1E-7
+NELM   = 100
+ALGO   = Normal
+
+GGA    = PE
+IVDW   = 12
+
+ISMEAR = -5
+ISPIN  = 1
+
+IBRION = -1
+NSW    = 0
+
+LREAL   = .FALSE.
+LASPH   = .TRUE.
+ADDGRID = .TRUE.
+
+ISYM = 2
+
+LWAVE  = .TRUE.
+LCHARG = .FALSE.

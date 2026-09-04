@@ -1,0 +1,43 @@
+SYSTEM = ZnIn2S4 HSE06 SCF
+
+# Start from converged PBE WAVECAR
+ISTART = 1
+ICHARG = 0
+
+# Basis / precision
+PREC   = Accurate
+ENCUT  = 500
+EDIFF  = 1E-7
+NELM   = 150
+NELMIN = 6
+
+# HSE06
+LHFCALC  = .TRUE.
+GGA      = PE
+HFSCREEN = 0.2
+
+# Exact-exchange numerical precision
+PRECFOCK = Normal
+
+# Hybrid electronic minimisation
+ALGO = Damped
+TIME = 0.4
+
+# Occupation
+ISMEAR = 0
+SIGMA  = 0.05
+
+ISPIN = 1
+
+# Fixed geometry
+IBRION = -1
+NSW    = 0
+
+LREAL = .FALSE.
+LASPH = .TRUE.
+
+ISYM = 2
+
+# Save HSE orbitals
+LWAVE  = .TRUE.
+LCHARG = .TRUE.
