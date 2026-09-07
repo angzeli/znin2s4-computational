@@ -31,7 +31,7 @@ All meshes are Gamma centered with shift `0 0 0`. The spacings are the three val
 
 The Stage 02 convergence study and Stage 03 static-SCF framework established the regular sampling selection. Longer layered c repeats receive finer c-axis sampling with the same integer divisions. PBE energy convergence does not by itself establish convergence of HSE06 exchange, gaps, or band extrema.
 
-The new automatic meshes agree with their Stage 05 bootstrap and SCF counterparts. Stage 05-00, 05-01, and 05-02 POSCARs remain identical within each phase, including atom order and lattice representation. The unchanged band INCARs have ISYM=0; VASP therefore determines the regular sampling appropriate to that runtime symmetry setting. The historical ISYM=2 weighted IBZ counts below must not be assumed to be the runtime irreducible counts of the new automatic-mesh band calculation. The underlying full Gamma meshes are unchanged.
+The automatic meshes agree across Stage 05-00, 05-01, and 05-02, as do the exact frozen POSCARs and atom ordering within each phase. The VASP 6.6.1 production INCARs now align regular-mesh symmetry at ISYM=2 across the chain. Expected regular counts are spinel 10, alpha1 69, beta 69, IIa_prime 69, and IIb 57, inherited from the audited bootstrap sets; they are not claimed as measured future HSE counts. ISYM=2 is a restart-consistency choice, not a KPOINTS_OPT requirement. The underlying full Gamma meshes and optional path coordinates are unchanged.
 
 ## High-Symmetry Paths
 
@@ -123,11 +123,13 @@ A future 20-versus-40 KPOINTS_OPT comparison may be performed if results indicat
 
 The project preflight context establishes KPOINTS_OPT functionality on the native VASP 6.6.1 build and requires NCORE=1 for the validated local hybrid KPOINTS_OPT workflow. Production HSE mesh convergence and runtime remain separate validation tasks.
 
-All five unchanged band INCARs specify LHFCALC=.TRUE., GGA=PE, HFSCREEN=0.2, ISTART=1, ICHARG=0, fixed geometry (NSW=0, IBRION=-1), ALGO=Damped, TIME=0.4, ISYM=0, and ISPIN=1. None sets ICHARG=11 or disables LKPOINTS_OPT. No obvious KPOINTS_OPT conflict was found in those settings.
+The production dependency is **05-00 PBE WAVECAR → 05-01 regular-mesh HSE06 SCF → converged HSE WAVECAR → 05-02 HSE06 restart + KPOINTS_OPT**. The previous direct PBE-to-band route belonged to the valid VASP 5.4.4 explicit zero-weight implementation. It is no longer the configured production route. KPOINTS_OPT evaluates the unchanged canonical path after regular HSE self-consistency; splitting the stages is a provenance/reuse choice, not a claimed speed advantage.
 
-NCORE, NPAR, and KPAR are absent from the five INCARs. The local ignored `vasp5.4.sub` files also do not supply NCORE=1 and still invoke a VASP 5.4.4 executable. These are legacy launchers, not verified launchers for the VASP 6.6.1 production representation. No native launcher setting was established from the inspected band directories. Production execution must use the validated native VASP 6.6.1 launcher and resolve NCORE=1, whether through its runtime configuration or effective defaults. That effective value must be confirmed for the actual launch.
+Both HSE branches specify LHFCALC=.TRUE., GGA=PE, HFSCREEN=0.2, ISTART=1, ICHARG=0, ALGO=Normal, LFOCKACE=.TRUE., HFRCUT=-1, ISYM=2, ISPIN=1, and fixed geometry (NSW=0, IBRION=-1). TIME was removed with the Damped-to-Normal change. Explicit NBANDS is 304/112/40/80/80 for spinel/alpha1/beta/IIa_prime/IIb in both branches, matching the PBE donors. These counts support the current band-edge validation scope, not independently converged high-energy conduction states. All unrelated convergence and output controls remain unchanged; 05-01 retains LWAVE=.TRUE. to supply the next stage.
 
-No INCAR or launcher was edited. HFRCUT treatment remains an INCAR/runtime decision outside this KPOINTS migration. The production-representation verdict below does not certify the legacy submission scripts for execution.
+NCORE, NPAR, and KPAR remain absent from all ten canonical HSE INCARs. The frozen generic port launcher owns execution-layer parallelism; the controlled validation selects --ranks 8 --ncore 1 --kpar 1 --mpi-mode synthetic. Only staged execution copies receive those parallel tags. The local ignored `vasp5.4.sub` scripts remain legacy VASP 5.4.4 launchers and are not the native production entry point.
+
+The initial KPOINTS-only migration did not edit INCARs. The subsequent restart alignment explicitly adopts Davidson/ACE, supported by the [official ACE documentation](https://vasp.at/wiki/LFOCKACE) and the port's bounded runtime evidence. HFRCUT=-1 follows the [official gapped hybrid-band recommendation](https://vasp.at/wiki/Band-structure_calculation_using_hybrid_functionals) and [HFRCUT definition](https://vasp.at/wiki/HFRCUT); applying it to both HSE branches keeps the finite-mesh Coulomb treatment consistent. It changes that numerical treatment from the previous default, not the intended HSE06 exchange fraction or screening. The frozen launcher was not edited. No HSE production convergence or speedup is established; the [bootstrap audit](05_00_PBE_WAVECAR_BOOTSTRAP_AUDIT.md) records the separate beta restart-control evidence and remaining runtime gates.
 
 ## Final Selection
 
@@ -139,12 +141,12 @@ No INCAR or launcher was edited. HFRCUT treatment remains an INCAR/runtime decis
 | IIa_prime | 12 x 12 x 4 | hP2 | 20 | PASS: VASP 6.6.1 KPOINTS representation |
 | IIb | 12 x 12 x 4 | hP2 | 20 | PASS: VASP 6.6.1 KPOINTS representation |
 
-All five input pairs pass the representation checks: automatic unshifted Gamma mesh; Line-mode/Reciprocal KPOINTS_OPT; exactly 20 points per segment; unchanged source endpoint coordinates, labels, and branch breaks. The ten-file migration leaves POSCAR, INCAR, POTCAR, restart data, Stage 03/04, and Stage 05 bootstrap/SCF inputs unchanged. No VASP calculation was run.
+All five input pairs pass the representation checks: automatic unshifted Gamma mesh; Line-mode/Reciprocal KPOINTS_OPT; exactly 20 points per segment; unchanged source endpoint coordinates, labels, and branch breaks. The original ten-file KPOINTS migration left INCARs unchanged and ran no VASP calculation. The subsequent restart alignment changes only HSE INCAR policy and these provenance documents, with a separate private beta PBE restart control; it does not change POSCAR, POTCAR, KPOINTS, KPOINTS_OPT, Stage 03/04, or any Stage 05-00 file.
 
 ## Caveats
 
 - PBE k-point convergence alone does not prove HSE regular-mesh convergence.
 - Twenty points per segment is not independently HSE path converged.
 - Input selection and the reduced preflight do not establish production HSE runtime or memory requirements; no measured production speedup is claimed.
-- HFRCUT is outside this representation migration.
+- HFRCUT=-1 is now explicit and consistent in both HSE branches; its production-mesh results still require HSE validation.
 - KPOINTS_OPT execution requires the native VASP 6.6.1 runtime and appropriate parallel settings, including the validated local NCORE=1 constraint. The supplied legacy submission scripts do not establish that runtime.
