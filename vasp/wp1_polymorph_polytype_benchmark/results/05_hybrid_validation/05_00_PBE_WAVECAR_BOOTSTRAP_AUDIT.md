@@ -1,6 +1,6 @@
 # WP1 Stage 05-00 — PBE WAVECAR Bootstrap Audit
 
-Audit date: 2026-09-07. Scope: spinel, alpha1, beta, IIa_prime, and IIb only.
+Original audit: 2026-09-07; ISYM=3 validation follow-up: 2026-09-09. Scope: spinel, alpha1, beta, IIa_prime, and IIb only.
 
 ## Executive Verdict
 
@@ -8,10 +8,10 @@ Audit date: 2026-09-07. Scope: spinel, alpha1, beta, IIa_prime, and IIb only.
 
 - Donor decisions: **5 PASS, 0 PASS WITH CAVEAT, 0 REQUIRES RECALCULATION**.
 - The finalized production dependency is **05-00 PBE WAVECAR → 05-01 HSE06 SCF → converged 05-01 HSE WAVECAR → 05-02 HSE06 restart + KPOINTS_OPT**. Direct 05-00 → 05-02 is no longer the production dependency.
-- All five 05-01 targets are statically compatible with the existing donors. A private beta PBE control directly demonstrated VASP 5.4.4 → VASP 6.6.1 WAVECAR acceptance at the unchanged production mesh, without fresh-start fallback.
+- All five 05-01 targets are statically compatible with the existing donors under full symmetry-orbit equivalence. Production HSE stages explicitly use ISYM=3. The corrected private beta zero-exact-exchange PBE control demonstrated VASP 5.4.4 → VASP 6.6.1 WAVECAR acceptance with ISYM=3, no fresh-start fallback, normal electronic convergence and reference-energy agreement.
 - The original audit correctly found a stale downstream ISYM=0 mismatch and held the broader two-branch freeze. That finding is retained below as history; the downstream settings and dependency have now been corrected without altering or rerunning 05-00.
 - **Global evidence boundary:** only beta cross-version restart was exercised at runtime. Neither full-mesh HSE convergence nor an eventual 05-01 HSE WAVECAR → 05-02 restart has been demonstrated. These are downstream gates, not failures of the completed bootstrap contract.
-- The scientific gate for the two requested local restart-alignment/provenance commits is satisfied. No Stage 05-00 calculation commit is warranted because its reproducible inputs are already committed and unchanged.
+- The scientific gate for the two requested local ISYM=3/provenance commits is satisfied; the failed plain-PBE control and its documented correction are retained below. No Stage 05-00 calculation commit is warranted because its reproducible inputs are already committed and unchanged.
 
 ## Purpose and Scope
 
@@ -27,11 +27,11 @@ Stage 03 frozen POSCAR / charge-density lineage
     → 05-02 regular-mesh HSE06 restart + KPOINTS_OPT path
 ```
 
-The initial audit was read-only except for this report. This follow-up modifies only the five 05-01 INCARs, five 05-02 INCARs, this report, and KPOINTS_SELECTION_JUSTIFICATION.md. No Stage 05-00 file, POSCAR, POTCAR, regular/path sampling, Stage 03/04 file, launcher, or tracked port file was modified. No bootstrap or production HSE calculation was run.
+The initial audit was read-only except for this report. Across the restart-alignment and subsequent ISYM=3 follow-ups, the scientific-repository changes are limited to the five 05-01 INCARs, five 05-02 INCARs, this report, and KPOINTS_SELECTION_JUSTIFICATION.md. No Stage 05-00 file, POSCAR, POTCAR, regular/path sampling, Stage 03/04 file, launcher, or tracked port file was modified. No bootstrap or production HSE calculation was run.
 
-One explicitly authorized, separately staged private beta PBE restart-control calculation was run through the frozen generic launcher, with a 180-second limit. It used the unchanged 12×12×4 mesh and donor WAVECAR. It is a restart-format/use test, not a new scientific production dataset. Parsing and integrity tables were in memory; no scripts, plots, JSON/YAML/CSV, or additional scientific-repository artifacts were created.
+The earlier 2026-09-07 explicitly authorized, separately staged private beta PBE restart-control calculation was run through the frozen generic launcher, with a 180-second limit. It used the unchanged 12×12×4 mesh and donor WAVECAR. It is a restart-format/use test, not a new scientific production dataset. Parsing and integrity tables were in memory; no scripts, plots, JSON/YAML/CSV, or additional scientific-repository artifacts were created.
 
-## Git Reconciliation
+## Historical Git Reconciliation — 2026-09-07
 
 The initial audit and the follow-up checked status, branch, recent history, working/staged diffs, and remotes. The follow-up fetch succeeded after filesystem approval for Git metadata access. HEAD and origin/main remained at the following starting values; the two existing unpushed commits were not amended or pushed.
 
@@ -47,7 +47,7 @@ The initial audit and the follow-up checked status, branch, recent history, work
 | Unrelated visible changes | None |
 | Remote | `https://github.com/angzeli/znin2s4-computational.git` |
 
-The existing local commits are b1284e4 (calc: migrate WP1 HSE bands to KPOINTS_OPT) and 893b22d (docs: update WP1 HSE KPOINTS justification). All 15 bootstrap input files (INCAR, KPOINTS, POSCAR in each phase) were already committed and unchanged. The local `.sub` files and heavy/licensed restart files remain ignored. Existing output tracking in earlier stages does not override this task's stricter exclusion list.
+At that earlier checkpoint, the existing local commits were b1284e4 (calc: migrate WP1 HSE bands to KPOINTS_OPT) and 893b22d (docs: update WP1 HSE KPOINTS justification). All 15 bootstrap input files (INCAR, KPOINTS, POSCAR in each phase) were already committed and unchanged. The local `.sub` files and heavy/licensed restart files remain ignored. Existing output tracking in earlier stages does not override this task's stricter exclusion list.
 
 ## Inventory and Attempt Provenance
 
@@ -93,11 +93,11 @@ The actual KPOINTS files in all four compared stages specify automatic Gamma-cen
 
 | Phase | Mesh | Shift | Bootstrap nkpts | Sum of IBZ weights | 05-01 mesh match | 05-02 mesh dimensions match |
 |---|---|---|---:|---:|---|---|
-| spinel | 4 × 4 × 4 | 0, 0, 0 | 10 | 64 | Yes | Yes; aligned ISYM=2 |
-| alpha1 | 12 × 12 × 4 | 0, 0, 0 | 69 | 576 | Yes | Yes; aligned ISYM=2 |
-| beta | 12 × 12 × 4 | 0, 0, 0 | 69 | 576 | Yes | Yes; aligned ISYM=2 |
-| IIa_prime | 12 × 12 × 4 | 0, 0, 0 | 69 | 576 | Yes | Yes; aligned ISYM=2 |
-| IIb | 12 × 12 × 4 | 0, 0, 0 | 57 | 576 | Yes | Yes; aligned ISYM=2 |
+| spinel | 4 × 4 × 4 | 0, 0, 0 | 10 | 64 | Yes | Yes; HSE ISYM=3 |
+| alpha1 | 12 × 12 × 4 | 0, 0, 0 | 69 | 576 | Yes | Yes; HSE ISYM=3 |
+| beta | 12 × 12 × 4 | 0, 0, 0 | 69 | 576 | Yes | Yes; HSE ISYM=3 |
+| IIa_prime | 12 × 12 × 4 | 0, 0, 0 | 69 | 576 | Yes | Yes; HSE ISYM=3 |
+| IIb | 12 × 12 × 4 | 0, 0, 0 | 57 | 576 | Yes | Yes; HSE ISYM=3 |
 
 ## Resolved Bootstrap Settings
 
@@ -169,19 +169,19 @@ Only headers and per-k-point band metadata were read, **not wavefunction coeffic
 
 ### Production INCAR policy and evidence
 
-Both HSE branches now use LHFCALC=T, GGA=PE, HFSCREEN=0.2, ALGO=Normal, LFOCKACE=T, HFRCUT=-1, ISYM=2, ISPIN=1, ENCUT=500 eV, ISTART=1, ICHARG=0, IBRION=-1, and NSW=0. The HSE exchange fraction remains the unchanged default; no AEXX override was introduced.
+Both HSE branches now use LHFCALC=T, GGA=PE, HFSCREEN=0.2, ALGO=Normal, LFOCKACE=T, HFRCUT=-1, ISYM=3, ISPIN=1, ENCUT=500 eV, ISTART=1, ICHARG=0, IBRION=-1, and NSW=0. The HSE exchange fraction remains the unchanged default; no AEXX override was introduced.
 
 The official [ACE documentation](https://vasp.at/wiki/LFOCKACE) supports Davidson/ALGO=Normal; ACE is not active under Damped/All. The port's VALIDATION_REPORT.md and docs/VALIDATION.md independently record bounded HSE/ACE and reduced-beta KPOINTS_OPT runtime evidence. ALGO=Damped was therefore replaced and the obsolete TIME=0.4 removed in both branches. This selects an already tested algorithm, not a claim of production speedup.
 
 The official [hybrid-band guidance](https://vasp.at/wiki/Band-structure_calculation_using_hybrid_functionals) recommends HFRCUT=-1 for gapped band workflows; the [HFRCUT documentation](https://vasp.at/wiki/HFRCUT) defines its automatic cutoff treatment. Both HSE branches adopt it to keep the finite-mesh Coulomb treatment consistent. This changes the previous default numerical treatment, not the intended HSE06 fraction/screening. No band gap or finite-mesh energy convergence is claimed by setting the tag.
 
-ISYM=2 is a regular-grid restart-consistency choice, not a KPOINTS_OPT requirement. The optional high-symmetry path remains exactly unchanged. Convergence controls, smearing, projectors, PAW options, fixed geometry and output flags were otherwise preserved: 05-01 retains NELMIN=6 and LWAVE=T/LCHARG=T; 05-02 retains NELMIN=8 and LWAVE=F/LCHARG=F. Both retain NELM=150 and EDIFF=1e-7 eV.
+ISYM=3 follows the official hybrid-functional symmetry strategy; equality to the bootstrap's ISYM=2 tag is not required. Full symmetry-orbit equivalence and separate runtime acceptance establish compatibility, rather than literal representative identity. The optional high-symmetry path remains exactly unchanged. Convergence controls, smearing, projectors, PAW options, fixed geometry and output flags were otherwise preserved: 05-01 retains NELMIN=6 and LWAVE=T/LCHARG=T; 05-02 retains NELMIN=8 and LWAVE=F/LCHARG=F. Both retain NELM=150 and EDIFF=1e-7 eV.
 
 ### 05-00 → 05-01
 
-All five targets have byte-identical donor POSCAR/POTCAR, matching regular mesh signatures, spin, cutoff and ISYM, and explicit donor-matching NBANDS:
+All five targets have byte-identical donor POSCAR/POTCAR, matching regular mesh signatures, spin and cutoff, verified equal-weight symmetry-orbit coverage under target ISYM=3, and explicit donor-matching NBANDS:
 
-| Phase | Mesh | Expected ISYM=2 regular nkpts | Explicit NBANDS in 01 and 02 | Cross-version evidence |
+| Phase | Mesh | Measured ISYM=3 initialization nkpts | Explicit NBANDS in 01 and 02 | Cross-version evidence |
 |---|---|---:|---:|---|
 | spinel | 4×4×4 | 10 | 304 | STATICALLY COMPATIBLE FOR INTENDED 05-01 START |
 | alpha1 | 12×12×4 | 69 | 112 | STATICALLY COMPATIBLE FOR INTENDED 05-01 START |
@@ -189,13 +189,13 @@ All five targets have byte-identical donor POSCAR/POTCAR, matching regular mesh 
 | IIa_prime | 12×12×4 | 69 | 80 | STATICALLY COMPATIBLE FOR INTENDED 05-01 START |
 | IIb | 12×12×4 | 57 | 80 | STATICALLY COMPATIBLE FOR INTENDED 05-01 START |
 
-The expected counts are inherited from the verified donor symmetry sets, not claimed actual future HSE output values. Stored marker 45200, spin and header records are valid in all five files. Counts above NELECT/2 are respectively 56, 19, 9, 18 and 18; NBANDS is accepted for the current band-edge validation, not independently converged high-energy conduction-band science. Explicit counts eliminate reliance on automatic band selection, but the launched parallel layout must still be checked for any padding.
+These counts were measured in VASP 6.6.1 native initialization-only runs and verified against all donor symmetry orbits; no production HSE SCF was run. Stored marker 45200, spin and header records are valid in all five files. Counts above NELECT/2 are respectively 56, 19, 9, 18 and 18; NBANDS is accepted for the current band-edge validation, not independently converged high-energy conduction-band science. Explicit counts eliminate reliance on automatic band selection, but the launched parallel layout must still be checked for any padding.
 
 PBE orbitals are a permitted initial guess for HSE; functional equality is not a restart requirement. ICHARG=0 constructs the initial density from the orbitals and permits subsequent self-consistency. [VASP ICHARG documentation](https://vasp.at/wiki/ICHARG).
 
 ### 05-01 → 05-02
 
-The actual 05-01 HSE WAVECAR does not yet exist. Its future 05-02 target now matches exact structure and PAW ordering, automatic regular mesh, ISYM=2, explicit NBANDS, ISPIN, cutoff, HSE06/ACE settings, PRECFOCK and HFRCUT. KPOINTS_OPT is the only added path sampling, not a replacement regular mesh. Existing branch-specific convergence and output settings remain intentional.
+The actual 05-01 HSE WAVECAR does not yet exist. Its future 05-02 target now matches exact structure and PAW ordering, automatic regular mesh, ISYM=3, explicit NBANDS, ISPIN, cutoff, HSE06/ACE settings, PRECFOCK and HFRCUT. KPOINTS_OPT is the only added path sampling, not a replacement regular mesh. Existing branch-specific convergence and output settings remain intentional.
 
 After 05-01 converges, validate its HSE donor identity and header, then use that donor for 05-02 through the frozen launcher's public CLI. Actual restart acceptance and optional-path convergence must be checked at that later execution. KPOINTS_OPT evaluates path states after regular SCF; the chosen sequential stages provide a provenance boundary and reusable HSE donor, not a claimed runtime advantage. [Official KPOINTS_OPT workflow](https://vasp.at/wiki/KPOINTS_OPT).
 
@@ -203,9 +203,9 @@ After 05-01 converges, validate its HSE donor identity and header, then use that
 
 The initial audit found direct reuse of ISYM=2 bootstrap WAVECARs in then-ISYM=0 automatic-mesh band inputs incompatible: stored counts were 10/69/69/69/57, whereas k↔−k-only grid reduction gives 36/292/292/292/292. The latter were analytic counts, not measurements from an unrun VASP job. Inappropriate restart k-point counts can cause fresh-start fallback. [VASP ISTART documentation](https://vasp.at/wiki/ISTART).
 
-This was stale downstream configuration following the representation migration, not donor corruption. The older VASP 5.4.4 explicitly listed weighted-plus-zero-weight method and direct PBE starting route were valid for their implementation. The new production route now takes 05-02 orbitals from converged 05-01 HSE, with matching ISYM=2 regular sampling. No bootstrap rerun was needed; the historical mismatch is no longer a freeze blocker.
+This was stale downstream configuration following the representation migration, not donor corruption. The older VASP 5.4.4 explicitly listed weighted-plus-zero-weight method and direct PBE starting route were valid for their implementation. The new production route now takes 05-02 orbitals from converged 05-01 HSE, with ISYM=3 regular sampling, verified symmetry-orbit equivalent to the ISYM=2 PBE donors. No bootstrap rerun was needed; the historical mismatch is no longer a freeze blocker.
 
-### Frozen-launcher beta HSE dry-run
+### Historical frozen-launcher beta HSE dry-run — ISYM=2, 2026-09-07
 
 The public scripts/run-vasp.sh CLI was invoked on the actual updated 05-01/beta input, with --restart wavecar and --restart-from pointing to 05-00/beta, --binary std, --ranks 8, --ncore 1, --kpar 1, --mpi-mode synthetic, and --dry-run. The hypothetical output was private/wp1-beta-hse-dry-20260907-202446 under the external port; it remained absent.
 
@@ -213,7 +213,7 @@ The public scripts/run-vasp.sh CLI was invoked on the actual updated 05-01/beta 
 
 NCORE/KPAR/NPAR remain absent from all ten canonical INCARs. The frozen launcher injects the requested parallel tags into execution copies only. No launcher or tracked port file was changed; legacy ignored VASP-5 submission scripts are not the native execution route.
 
-### Private beta cross-version PBE acceptance control
+### Historical private beta cross-version PBE acceptance control — ISYM=2, 2026-09-07
 
 **PASS.** One new private execution was staged through the same public CLI, with --timeout 180 and the same std/8-rank/NCORE=1/KPAR=1/synthetic settings. Its input copied only the unchanged beta POSCAR, POTCAR and KPOINTS. The small PBE INCAR retained GGA=PE, IVDW=12, ENCUT=500, PREC=Accurate, EDIFF=1e-7, ALGO=Normal, ISPIN=1, ISMEAR=-5, fixed geometry, LREAL=F, LASPH=T and ADDGRID=T; it used NELM=40, ISTART=1, ICHARG=0, ISYM=2, NBANDS=40, LWAVE=F and LCHARG=F. There were no HSE tags or KPOINTS_OPT.
 
@@ -239,6 +239,75 @@ Local donor SHA-256 was identical before and after the test. Private logs and RU
 
 This is directly exercised beta VASP-5-to-VASP-6 PBE restart acceptance, not an HSE run or a runtime test of the other four phases. No production HSE convergence, production-mesh ACE speedup, or future HSE-to-band acceptance follows from this control.
 
+## ISYM=3 Closure — 2026-09-09
+
+### Official documentation and approved sampling criterion
+
+The [official ISYM documentation](https://vasp.at/wiki/ISYM) specifies ISYM=3 as the default for LHFCALC=T; ISYM=1/2/3 enable symmetry. ISYM=3 constructs density from symmetry-transformed irreducible-zone orbitals. The [regular-mesh documentation](https://vasp.at/wiki/KPOINTS), [KPOINTS_OPT documentation](https://vasp.at/wiki/index.php/KPOINTS_OPT), and [hybrid-band guidance](https://vasp.at/wiki/Band-structure_calculation_using_hybrid_functionals) support automatic symmetry-reduced regular meshes plus an additional path; KPOINTS_OPT does not require ISYM=0. These are documentation statements, not local runtime evidence.
+
+The user explicitly approved full crystal-symmetry/time-reversal orbit equivalence instead of literal representative-coordinate identity. The independent in-memory check used the actual frozen POSCARs, including centering/nonsymmorphic translations when identifying valid operations, and reciprocal rotations given by inverse-transpose direct rotations. Lattice-metric tolerance was 1e-6 Angstrom squared; same-species positional matching used 1e-5 fractional units. The resulting space-operation/unique-rotation counts were 192/48, 18/6, 6/6, 12/12 and 12/12 in phase order below. Time reversal is appropriate to these nonmagnetic, non-SOC inputs.
+
+Native one-rank initialization-only VASP 6.6.1 runs generated the ISYM=3 lists without electronic iterations. For both donor and target, every orbit was unique, orbits were disjoint, each orbit cardinality equalled its recorded multiplicity, and their union exactly covered the full unshifted Gamma mesh. The two collections of orbits were identical. Reciprocal-coordinate residuals after symmetry/time-reversal mapping were at most 1.001e-14, below 1e-10.
+
+| Phase | Donor / ISYM=3 target nkpts | Direct periodic-coordinate matches | Equal-weight orbit matches | Full-grid coverage, donor and target |
+|---|---:|---:|---:|---:|
+| spinel | 10 / 10 | 10 / 10 | 10 / 10 | 64 / 64 |
+| alpha1 | 69 / 69 | 57 / 69 | 69 / 69 | 576 / 576 |
+| beta | 69 / 69 | 57 / 69 | 69 / 69 | 576 / 576 |
+| IIa_prime | 69 / 69 | 57 / 69 | 69 / 69 | 576 / 576 |
+| IIb | 57 / 57 | 57 / 57 | 57 / 57 | 576 / 576 |
+
+The 12 different representatives in each of alpha1, beta and IIa_prime are not sampling mismatches. An otherwise-identical beta ISYM=2 initialization produced a byte-identical IBZKPT to ISYM=3. The earlier 6.6.1 PBE/ISYM=2 control also had the same ordered coordinates and weights. Thus the beta difference from the 5.4.4 list was not introduced by switching ISYM. Orbit equivalence does not by itself prove WAVECAR reading or convergence.
+
+### Current five-phase launcher and Scratch plans
+
+All five actual 05-01 inputs passed frozen public-launcher dry-runs with std, eight ranks, NCORE=1, KPAR=1, synthetic MPI, ISTART=1/ICHARG=0 and the matching original 05-00 WAVECAR donor. Exact input inspection verified ISYM=3, HSE06, the regular meshes and NBANDS listed above. Each hypothetical phase output remained absent. An initial sandbox-only output-parent permission refusal was resolved by running the same harmless preflight with filesystem approval, not by changing the launcher.
+
+The unchanged Scratch orchestrator passed its existing --dry-run --start-if-no-orca --vasp-timeout 180 mode for all five phases. It created no phase outputs and removed its empty planning parents; it was not armed. Its actual input summaries reported ISYM=3. Its hard-coded informational message about an unresolved ISYM=2/3 review is historical and stale, not an ISYM=2 assertion. The script is preserved unchanged. The 180-second value here was a dry-run/control budget, not a production HSE budget recommendation.
+
+### Failed control and documented PBE correction
+
+The first ISYM=3 plain-PBE control accepted the donor WAVECAR but exited after 4.585524 s with CHECK_FULL_KPOINTS: KPOINTS_FULL not properly initialised, before any electronic iteration. It had no convergence or final energy and was not accepted. Its private evidence remains in beta-runtime under the validation root below.
+
+The failure matches a [known issue and workaround documented by a VASP developer](https://vasp.at/forum/viewtopic.php?t=19372): regular DFT with ISYM=3 requires LHFCALC=T and AEXX=0 to initialize the full-k-point machinery without adding exact exchange. Read-only inspection of the local source corroborated this control-flow dependency. After the user requested resumption and memory pressure returned to normal, a new private control added only these two effective tags to the failed control input. No frozen source, binary, launcher, donor or production functional setting was changed.
+
+The corrected control remained PBE+D3(BJ), not HSE06: actual output resolved GGA=PE, AEXX=0, ALDAX=AGGAX=ALDAC=AGGAC=1, HFSCREEN=0 and IVDW=12. It retained the exact structure, PAW, 12x12x4 mesh, ENCUT=500, ISPIN=1, NBANDS=40, ISMEAR=-5, ISTART=1, ICHARG=0, ISYM=3, ALGO=Normal, EDIFF=1e-7, NELM=40, NSW=0, LWAVE=F and LCHARG=F. The original ORCA workload had exited and the settling interval had elapsed. It ran at low priority through the unchanged launcher, eight single-threaded ranks, NCORE=1/KPAR=1, synthetic MPI, with the original 180-second cap.
+
+| Runtime gate | Direct local evidence |
+|---|---|
+| Version and donor | VASP 6.6.1; successful WAVECAR-read acknowledgement; original 5.4.4 donor |
+| No fresh start | Resolved ISTART=1 and ICHARG=0; no not-read/random-wavefunction/ISTART=0 fallback |
+| Dimensions | NKPTS=69, NBANDS=40, NKDIM=576, ISYM=3, ENCUT=500 eV, ISPIN=1 |
+| Completion | 17 of 40 electronic iterations; explicit EDIFF termination, normal footer, closed XML, child/launcher exit 0 |
+| Time | VASP 73.682 s; launcher 73.937363 s; no timeout extension |
+| Final energy | -28.75501276 eV/f.u. |
+| Bootstrap reference | -28.75501278 eV/f.u.; absolute difference 2e-8, within the existing 1e-5 eV/f.u. tolerance |
+| Earlier ISYM=2 control | -28.75501263 eV/f.u.; absolute difference 1.3e-7 eV/f.u. |
+| Numerical/structural checks | Finite recorded energies and all seven force vectors; no NaN/Inf/fatal error, empty stderr; fixed cell/positions preserved within XML printing precision (3.85e-9 Angstrom / 4.70e-9 fractional) |
+| Stress boundary | Resolved ISIF=0 under this zero-exchange HF machinery; stress was not computed and is not claimed validated |
+| Donor/input integrity | Original and staged WAVECAR hashes unchanged; runtime POSCAR/POTCAR/KPOINTS identical to donor |
+
+The frozen launcher's scientific classifier reports NOT ASSESSED for this LHFCALC=true case, despite normal termination and WAVECAR ACCEPTED. The PASS above comes from independent inspection of raw OUTCAR/OSZICAR and parsed complete XML, not from overriding that classifier or treating exit 0 as convergence.
+
+Both attempts are preserved under the external port's ignored private/wp1-isym3-validation/20260908-2115-d5d40a directory; the successful attempt is beta-zero-exchange-runtime, with separate beta-zero-exchange-input. No private logs or licensed inputs enter these commits. This validates beta cross-version PBE restart under ISYM=3, not production HSE convergence or the other four individual runtime restarts.
+
+### Protected files and commit boundary
+
+This follow-up started at main=f13db5f770b410befb84deca76a8902dd413637a, equal to fetched origin/main, with a clean worktree and no unpushed commits. Historical Git states above belong to earlier work.
+
+The final SHA-256 comparison against the original pre-change baseline covers 443 files:
+
+| Protected group | Files | Result |
+|---|---:|---|
+| Frozen port tracked files and binary | 38 | Unchanged |
+| Scratch orchestrator | 1 | Unchanged |
+| Stage 03 files | 90 | Unchanged |
+| Stage 04 files | 189 | Unchanged |
+| All Stage 05-00 phase files, including donors | 90 | Unchanged |
+| Stage 05-01/02 POSCAR/POTCAR/KPOINTS and five KPOINTS_OPT | 35 | Unchanged |
+
+Each of the ten HSE INCARs is byte-identical to its starting version except one ISYM=2 to ISYM=3 substitution. No other scientific tag, mesh, path, 20-point segment resolution, structure or execution-layer setting was changed. Only those ten files and the two specified provenance documents are included in the two local commits. Stage 05-00 remains 5 PASS, 0 PASS WITH CAVEAT, 0 RECALCULATION; freeze PASS. Other-phase restart evidence remains static, and actual production HSE execution still requires its own explicit budget and runtime checks.
+
 ## Relationship to Stage 03
 
 Stage 03 remains the authoritative **PBE+D3(BJ) static-energy dataset**. All five Stage 03 INCARs and resolved OUTCARs have LWAVE=F. Stage 05-00 adds the missing PBE orbital files, with LWAVE=T, an explicit bootstrap SYSTEM title, distinct output contents and execution records, and donor eigenvalues matching its own completed result.
@@ -261,11 +330,11 @@ All five decisions accept the donor contract: produce valid PBE starting orbital
 
 **Stage 05-00 freeze decision: PASS.**
 
-All five original donor calculations are accepted and remain unchanged. The sequential production inputs, beta HSE dry-run, and beta bounded cross-version PBE restart control satisfy the requested migration gate. The old 05-02 mismatch is resolved and is not an outstanding bootstrap blocker.
+All five original donor calculations are accepted and remain unchanged. The ISYM=3 inputs, five full-orbit comparisons, five launcher dry-runs, Scratch dry-run, corrected beta bounded restart control, and protected-file audit satisfy the approved migration gate. The old 05-02 mismatch is resolved and is not an outstanding bootstrap blocker.
 
-The two authorized local commits are scoped to: (1) the ten changed 05-01/05-02 INCARs, with message calc: align WP1 HSE restart workflow for VASP 6.6.1; (2) only this audit and KPOINTS_SELECTION_JUSTIFICATION.md, with message docs: finalize WP1 HSE restart provenance. Commit identities and exact file scopes are recorded by Git and the completion response, not self-referentially embedded in this document.
+The two authorized local commits are scoped to: (1) the ten changed 05-01/05-02 INCARs, with message calc: use hybrid symmetry for WP1 HSE validation; (2) only this audit and KPOINTS_SELECTION_JUSTIFICATION.md, with message docs: resolve WP1 HSE symmetry provenance. Commit identities and exact file scopes are recorded by Git and the completion response, not self-referentially embedded in this document.
 
-No Stage 05-00 calculation commit, empty commit, or output-only substitute is needed. The original 30 untracked bootstrap outputs remain untouched and untracked. No WAVECAR, POTCAR, CHGCAR, private validation output, binary or licensed PAW data enters either commit. No push is authorized or performed.
+No Stage 05-00 calculation commit, empty commit, or output-only substitute is needed. The original 30 bootstrap outputs were subsequently committed in f13db5f and remain untouched by this migration. No WAVECAR, POTCAR, CHGCAR, private validation output, binary or licensed PAW data enters either commit. No push is authorized or performed.
 
 ## Caveats
 
