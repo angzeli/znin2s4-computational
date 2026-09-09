@@ -38,7 +38,7 @@ NSW    = 0
 LREAL = .FALSE.
 LASPH = .TRUE.
 
-ISYM = 2
+ISYM = 3
 
 # Save HSE orbitals
 LWAVE  = .TRUE.
