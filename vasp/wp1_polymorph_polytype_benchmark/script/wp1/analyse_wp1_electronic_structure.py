@@ -1038,8 +1038,8 @@ def pearson(values_a: Sequence[float], values_b: Sequence[float]) -> float:
 
 def analyse_phase(phase: str) -> dict[str, object]:
     meta = PHASE_META[phase]
-    dos_dir = CALC_ROOT / phase / "dos_pdos"
-    band_dir = CALC_ROOT / phase / "band"
+    dos_dir = CALC_ROOT / "01_dos_pdos" / phase
+    band_dir = CALC_ROOT / "02_band" / phase
     stage03_dir = STAGE03_ROOT / phase
     required = ("INCAR", "KPOINTS", "POSCAR", "CONTCAR", "OUTCAR", "vasprun.xml", "DOSCAR", "EIGENVAL", "PROCAR", "CHGCAR")
     for branch_dir in (dos_dir, band_dir):
