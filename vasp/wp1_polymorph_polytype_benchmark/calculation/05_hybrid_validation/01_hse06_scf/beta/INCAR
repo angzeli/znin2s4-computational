@@ -43,3 +43,7 @@ ISYM = 3
 # Save HSE orbitals
 LWAVE  = .TRUE.
 LCHARG = .TRUE.
+
+# Parallel controls resolved by local run-vasp
+NCORE = 1
+KPAR = 1
