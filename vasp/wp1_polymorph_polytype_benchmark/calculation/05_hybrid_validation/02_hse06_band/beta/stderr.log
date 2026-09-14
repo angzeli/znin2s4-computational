@@ -1,0 +1,14 @@
+[Angzes-MacBook-Pro][[54477,1],0][btl_tcp_endpoint.c:684:mca_btl_tcp_set_socket_options] setsockopt(TCP_NODELAY) failed: Invalid argument (22)
+[Angzes-MacBook-Pro][[54477,1],0][btl_tcp_endpoint.c:713:mca_btl_tcp_set_socket_options] setsockopt(SO_NOSIGPIPE) failed: Invalid argument (22)
+--------------------------------------------------------------------------
+WARNING: Open MPI failed to get or set flags on a TCP socket.  This
+should not happen.
+
+This may cause unpredictable behavior, and may end up hanging or
+aborting your job.
+
+  Local host: Angzes-MacBook-Pro
+  PID:        36496
+  Flag:       setsockopt(sd, SOL_SOCKET, SO_RCVTIMEO, ...)
+  Error:      Invalid argument (22)
+--------------------------------------------------------------------------
