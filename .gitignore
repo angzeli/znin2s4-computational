@@ -26,6 +26,7 @@ dist/
 
 # Local runtime metadata containing personal paths and machine details
 *METADATA.txt
+*job.json
 
 # Temporary and scheduler files
 *.tmp
