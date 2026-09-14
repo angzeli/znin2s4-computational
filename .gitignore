@@ -24,6 +24,9 @@ dist/
 *.swo
 *~
 
+# Local runtime metadata containing personal paths and machine details
+*METADATA.txt
+
 # Temporary and scheduler files
 *.tmp
 *.bak
