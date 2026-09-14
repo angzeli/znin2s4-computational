@@ -1,0 +1,339 @@
+{
+  "phase": "beta",
+  "system": "ZnIn2S4",
+  "method": "HSE06",
+  "vasp_version": "6.6.1",
+  "source_files": {
+    "vasprun.xml": {
+      "path": "vasp/wp1_polymorph_polytype_benchmark/calculation/05_hybrid_validation/02_hse06_band/beta/vasprun.xml",
+      "sha256": "73d857dcc2a9f161071e87a4d2b459af350b3f5bc2db33b292f30f29cbd5dcde"
+    },
+    "KPOINTS_OPT": {
+      "path": "vasp/wp1_polymorph_polytype_benchmark/calculation/05_hybrid_validation/02_hse06_band/beta/KPOINTS_OPT",
+      "sha256": "2b34ee4eea4b75ce9d15f4d0b03f036b3fb0438535ee893a6e825303359243b7"
+    },
+    "POSCAR": {
+      "path": "vasp/wp1_polymorph_polytype_benchmark/calculation/05_hybrid_validation/02_hse06_band/beta/POSCAR",
+      "sha256": "de5be50f065217d21d2211ae3ef29a7869ceebcbd476604333a6e28a22bc4aa1"
+    }
+  },
+  "xml_dataset": "modeling/calculation/eigenvalues_kpoints_opt",
+  "geometry": {
+    "atom_count": 7,
+    "composition": "ZnIn2S4",
+    "lattice_vectors_angstrom": [
+      [
+        3.8782842923155867,
+        0.0,
+        -0.0
+      ],
+      [
+        -1.9391421461577933,
+        3.3586927202930394,
+        -0.0
+      ],
+      [
+        -0.0,
+        -0.0,
+        12.148433133274931
+      ]
+    ],
+    "checked_against": [
+      "vasp/wp1_polymorph_polytype_benchmark/calculation/01_geometry_optimisation/beta/CONTCAR",
+      "vasp/wp1_polymorph_polytype_benchmark/calculation/04_electronic_structure/02_band/beta/POSCAR",
+      "vasp/wp1_polymorph_polytype_benchmark/calculation/05_hybrid_validation/02_hse06_band/beta/CONTCAR"
+    ],
+    "poscar_tolerance": 1e-10,
+    "xml_rounding_tolerance": 5.1e-09,
+    "transformed": false
+  },
+  "settings": {
+    "ENCUT_eV": 500,
+    "AEXX": 0.25,
+    "HFSCREEN_Ainv": 0.2,
+    "ISPIN": 1,
+    "NELECT": 62,
+    "NBANDS": 40
+  },
+  "regular_sampling": {
+    "mesh": [
+      12,
+      12,
+      4
+    ],
+    "centering": "Gamma",
+    "shift": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "NKPTS": 69
+  },
+  "path": {
+    "definition": "GAMMA-M-K-GAMMA-A-L-H-A | L-M | H-K",
+    "segments": [
+      {
+        "start_label": "GAMMA",
+        "end_label": "M",
+        "start_fractional": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "end_fractional": [
+          0.5,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "start_label": "M",
+        "end_label": "K",
+        "start_fractional": [
+          0.5,
+          0.0,
+          0.0
+        ],
+        "end_fractional": [
+          0.3333333333,
+          0.3333333333,
+          0.0
+        ]
+      },
+      {
+        "start_label": "K",
+        "end_label": "GAMMA",
+        "start_fractional": [
+          0.3333333333,
+          0.3333333333,
+          0.0
+        ],
+        "end_fractional": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "start_label": "GAMMA",
+        "end_label": "A",
+        "start_fractional": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "end_fractional": [
+          0.0,
+          0.0,
+          0.5
+        ]
+      },
+      {
+        "start_label": "A",
+        "end_label": "L",
+        "start_fractional": [
+          0.0,
+          0.0,
+          0.5
+        ],
+        "end_fractional": [
+          0.5,
+          0.0,
+          0.5
+        ]
+      },
+      {
+        "start_label": "L",
+        "end_label": "H",
+        "start_fractional": [
+          0.5,
+          0.0,
+          0.5
+        ],
+        "end_fractional": [
+          0.3333333333,
+          0.3333333333,
+          0.5
+        ]
+      },
+      {
+        "start_label": "H",
+        "end_label": "A",
+        "start_fractional": [
+          0.3333333333,
+          0.3333333333,
+          0.5
+        ],
+        "end_fractional": [
+          0.0,
+          0.0,
+          0.5
+        ]
+      },
+      {
+        "start_label": "L",
+        "end_label": "M",
+        "start_fractional": [
+          0.5,
+          0.0,
+          0.5
+        ],
+        "end_fractional": [
+          0.5,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "start_label": "H",
+        "end_label": "K",
+        "start_fractional": [
+          0.3333333333,
+          0.3333333333,
+          0.5
+        ],
+        "end_fractional": [
+          0.3333333333,
+          0.3333333333,
+          0.0
+        ]
+      }
+    ],
+    "points_per_segment": 20,
+    "path_entries": 180,
+    "exported_eigenvalues": 7200,
+    "disconnected_before_segment_one_based": [
+      8,
+      9
+    ]
+  },
+  "edges": {
+    "vbm_band_index": 31,
+    "cbm_band_index": 32,
+    "sampled_vbm_raw_eV": 4.0196,
+    "sampled_cbm_raw_eV": 5.1103,
+    "fundamental_gap_eV": 1.0907,
+    "minimum_direct_gap_eV": 1.0919,
+    "direct_minus_fundamental_meV": 1.2
+  },
+  "energy_zero": "One global optional-path band-31 maximum; E_minus_VBM = raw_eigenvalue - VBM; not E_F",
+  "printed_precision": {
+    "eigenvalue_eV": 0.0001,
+    "fractional_k_component": 1e-08
+  },
+  "csv_conventions": {
+    "index_base": 1,
+    "row_order": "path point, then band",
+    "boolean_encoding": "0/1",
+    "repeated_boundary": "All endpoint occurrences in an equivalent pair, including the first occurrence",
+    "k_distance_Ainv": "Cumulative segment arc length from POSCAR 2*pi reciprocal basis and KPOINTS_OPT endpoints; no disconnected jump; branch starts inherit the prior end distance",
+    "display_x": "Physical distance plus a display-only offset of 0.055 times the total physical span per break"
+  },
+  "repeated_point_validation": {
+    "pair_count": 18,
+    "path_point_pairs_one_based": [
+      [
+        1,
+        60
+      ],
+      [
+        1,
+        61
+      ],
+      [
+        20,
+        21
+      ],
+      [
+        20,
+        160
+      ],
+      [
+        21,
+        160
+      ],
+      [
+        40,
+        41
+      ],
+      [
+        40,
+        180
+      ],
+      [
+        41,
+        180
+      ],
+      [
+        60,
+        61
+      ],
+      [
+        80,
+        81
+      ],
+      [
+        80,
+        140
+      ],
+      [
+        81,
+        140
+      ],
+      [
+        100,
+        101
+      ],
+      [
+        100,
+        141
+      ],
+      [
+        101,
+        141
+      ],
+      [
+        120,
+        121
+      ],
+      [
+        120,
+        161
+      ],
+      [
+        121,
+        161
+      ]
+    ],
+    "maximum_difference_bands_1_to_37_eV": 0.0,
+    "maximum_difference_by_band_eV": {
+      "31": 0.0,
+      "32": 0.0,
+      "38": 0.0005,
+      "39": 0.0048,
+      "40": 0.1421
+    },
+    "minimum_energy_minus_vbm_bands_38_to_40_eV": 5.4992
+  },
+  "high_unoccupied_band_caveat": "All 40 bands are exported unchanged. Bands 38-40 are not uniformly quantitatively converged; repeated-point differences reach 0.1421 eV. Their minimum is +5.4992 eV relative to VBM, outside the -4 to +4 eV figure. The band-31/32 gap is unaffected; no high-energy optical validation is claimed.",
+  "figure": {
+    "path": "vasp/wp1_polymorph_polytype_benchmark/results/05_hybrid_validation/figures/beta_hse06_band_structure.pdf",
+    "figsize_inches": [
+      7,
+      5
+    ],
+    "energy_window_eV": [
+      -4.0,
+      4.0
+    ],
+    "hP2_display_gap_fraction": 0.055
+  },
+  "implementation": {
+    "script": "vasp/wp1_polymorph_polytype_benchmark/script/export_wp1_hse06_band.py",
+    "sha256": "8d4559372853f7ab05988695dc782422140a1114ab2f0f5873e5cac0e06390fe",
+    "numpy": "2.5.3",
+    "matplotlib": "3.11.1",
+    "shared_plotter": "vasp/wp1_polymorph_polytype_benchmark/script/plot_wp1_bands.py",
+    "shared_style": "vasp/wp1_polymorph_polytype_benchmark/script/wp1_electronic_plot_style.py"
+  }
+}
