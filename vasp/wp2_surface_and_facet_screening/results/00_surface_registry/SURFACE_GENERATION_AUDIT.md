@@ -33,7 +33,7 @@ not the slab source. No CIF, Stage 04 copy, or HSE input supplied a parent.
 
 Implementation: [generator](../../script/wp2/generate_surface_candidates.py),
 [geometry utilities](../../script/wp2/surface_model_utils.py), and
-[focused tests](../../script/wp2/test_surface_candidates.py).
+[focused tests](../../script/wp2/test/test_surface_candidates.py).
 The existing `.venv-wp1-plots` environment supplies pymatgen 2026.5.4,
 NumPy 2.5.3, SciPy 1.18.1 and spglib 2.7.0. No dependencies were installed.
 
