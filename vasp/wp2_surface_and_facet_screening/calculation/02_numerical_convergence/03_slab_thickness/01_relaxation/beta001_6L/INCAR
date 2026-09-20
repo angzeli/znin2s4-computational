@@ -1,0 +1,35 @@
+ALGO = Normal
+AMIN = 0.01
+DIPOL = 0.5 0.5 0.5
+EDIFF = 1e-06
+EDIFFG = -0.02
+ENCUT = 500.0
+GGA = Pe
+IBRION = 2
+ICHARG = 2
+IDIPOL = 3
+ISIF = 2
+ISMEAR = 0
+ISPIN = 1
+ISTART = 0
+ISYM = 0
+IVDW = 12
+
+LASPH = True
+LCHARG = True
+LDIPOL = True
+LORBIT = 11
+LREAL = False
+LVHAR = True
+LWAVE = False
+
+NELM = 120
+NELMIN = 2
+NSW = 100
+PREC = Accurate
+SIGMA = 0.05
+SYSTEM = WP2-P02-beta001-thickness-6L-relax-500-k10
+
+# Parallel controls resolved by local run-vasp
+NCORE = 4
+KPAR = 1
