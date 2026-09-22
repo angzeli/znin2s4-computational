@@ -10,8 +10,8 @@ This is a screening-level agreement, not a claim of force equivalence or an unst
 
 | Model | Job | Native calculation directory | Ionic degrees of freedom |
 | --- | --- | --- | --- |
-| FULL | J34.1 | [4L thickness reference](../../../calculation/02_numerical_convergence/03_slab_thickness/01_relaxation/beta001_4L) | All 28 atoms free |
-| FIXED | J37.1 | [4L relaxed-region test](../../../calculation/02_numerical_convergence/04_relaxed_region/beta001_4L) | Outer 14 atoms free; central 14 fixed |
+| FULL | J34.1 | [4L thickness reference](../../calculation/02_numerical_convergence/03_slab_thickness/01_relaxation/beta001_4L) | All 28 atoms free |
+| FIXED | J37.1 | [4L relaxed-region test](../../calculation/02_numerical_convergence/04_relaxed_region/beta001_4L) | Outer 14 atoms free; central 14 fixed |
 
 Source POSCAR coordinates and lattice vectors are exactly equal when parsed, with identical ordering: four repeated `S₄ In₂ Zn₁` units, totaling **Zn₄In₈S₁₆**. The substantive input difference is only Selective Dynamics. POSCAR title and INCAR `SYSTEM` labels differ harmlessly. A complete parsed INCAR comparison and the actual XML parameter comparison find no other setting difference. KPOINTS and POTCAR are byte-identical, verified by SHA-256; the PAW sequence is `PAW_PBE S 06Sep2000`, `In_d 06Sep2000`, `Zn 06Sep2000`, repeated four times to match the atom ordering.
 
@@ -154,13 +154,13 @@ With identical composition, parent phase, numerical model and cell, the **same b
 
 `ΔΓ_pair = (E_FIXED − E_FULL) / A`, with `A = |a × b| = 13.025965219827203 Å²`.
 
-The denominator is the **one-face area A**, not 2A: this is the paired surface excess, not a separate energy assigned to either inequivalent face. Using E₀ gives **+0.117208 meV/Å²**, comfortably meeting the predefined `|ΔΓ_pair| ≤ 1 meV/Å²` refinement target in [ROADMAP §5.6.6](../../../ROADMAP.md#566-convergence-acceptance). F and E_without_entropy give the same pass. The sign is consistent with suppression of available ionic relaxation; no claim that the constrained state is a lower variational minimum is made. This matched cancellation does not supply the independent bulk reference missing from the separate slab-thickness surface-energy analysis.
+The denominator is the **one-face area A**, not 2A: this is the paired surface excess, not a separate energy assigned to either inequivalent face. Using E₀ gives **+0.117208 meV/Å²**, comfortably meeting the predefined `|ΔΓ_pair| ≤ 1 meV/Å²` refinement target in [ROADMAP §5.6.6](../../ROADMAP.md#566-convergence-acceptance). F and E_without_entropy give the same pass. The sign is consistent with suppression of available ionic relaxation; no claim that the constrained state is a lower variational minimum is made. This matched cancellation does not supply the independent bulk reference missing from the separate slab-thickness surface-energy analysis.
 
 ## Vacuum-referenced electronic comparison
 
 ### Face-specific vacuum levels and work functions
 
-Both final LOCPOTs contain the same LVHAR Hartree-plus-ionic potential. Planar means use native z grids, with **6 Å setback from each outermost atom and 1 Å exclusion from each cell boundary**, matching the [thickness analysis](../03_slab_thickness/THICKNESS_ANALYSIS.md). Native grids are 56×56×960 and match CHGCAR. Integrated charge reproduces 248 electrons to better than 10⁻³ electrons; the electron density is obtained by dividing CHGCAR by cell volume.
+Both final LOCPOTs contain the same LVHAR Hartree-plus-ionic potential. Planar means use native z grids, with **6 Å setback from each outermost atom and 1 Å exclusion from each cell boundary**, matching the [thickness analysis](03_SLAB_THICKNESS_ANALYSIS.md). Native grids are 56×56×960 and match CHGCAR. Integrated charge reproduces 248 electrons to better than 10⁻³ electrons; the electron density is obtained by dividing CHGCAR by cell volume.
 
 The established vacuum screening requires width ≥2 Å, |slope| ≤0.005 eV/Å, maximum detrended residual ≤0.02 eV, potential range ≤0.03 eV and maximum absolute density ≤10⁻⁵ e/Å³. All four windows pass. Their positions and diagnostics are:
 

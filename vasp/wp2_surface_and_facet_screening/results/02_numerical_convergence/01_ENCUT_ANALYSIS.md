@@ -6,7 +6,7 @@ Reviewed on 15 September 2026 from the completed [500 eV](../../../calculation/0
 
 ## Controlled comparison
 
-Both calculations use the same frozen, centered [A2 geometry](../../../calculation/01_runtime_pilot/01_beta_basal/02_relaxation/CONTCAR): one seven-atom ZnIn₂S₄ septuple layer, surface `beta_001_t07`, with lower and upper face identities preserved. The area is 13.02596522 Å², slab thickness 9.45610547 Å and atom-free periodic-image separation 19.96375274 Å. This is the same geometry used in the [k-point comparison](KPOINTS_ANALYSIS.md).
+Both calculations use the same frozen, centered [A2 geometry](../../../calculation/01_runtime_pilot/01_beta_basal/02_relaxation/CONTCAR): one seven-atom ZnIn₂S₄ septuple layer, surface `beta_001_t07`, with lower and upper face identities preserved. The area is 13.02596522 Å², slab thickness 9.45610547 Å and atom-free periodic-image separation 19.96375274 Å. This is the same geometry used in the [k-point comparison](01_KPOINTS_ANALYSIS.md).
 
 POSCAR, KPOINTS and local POTCAR bytes are identical between the two runs. Parsed INCAR settings differ only in `ENCUT` and the descriptive `SYSTEM` label. Both use VASP 6.6.1, PBE+D3(BJ), a Γ-centered 10×10×1 mesh, `EDIFF=10⁻⁶ eV`, `ISPIN=1`, Gaussian smearing with `SIGMA=0.05 eV`, and z-directed dipole correction centered at `(0.5,0.5,0.5)`. They are fresh fixed-geometry statics (`NSW=0`, `ISTART=0`, `ICHARG=2`).
 

@@ -8,15 +8,15 @@ The matched bulk static **J39.1 passes the fixed-geometry electronic-convergence
 
 **No unresolved Stage 02 acceptance criterion requires an 8L slab.** An 8L calculation could add information about the interior profile or the longer thickness trend, but that information is not necessary to choose the present screening model. The documented limitation is that the **full interior electrostatic profile is still thickness-dependent**, despite agreement of the measured surface descriptors. This closure does not establish a bulk-like interior, rigorous bulk band edges, universal surface-energy accuracy or convergence of downstream adsorption/interface properties.
 
-Updated on 22 September 2026 against the archived J39.1 rerun. Acceptance uses the predefined [ROADMAP §5.6.6](../../../ROADMAP.md#566-convergence-acceptance) thresholds. This report integrates the native endpoint evidence with the [thickness](../03_slab_thickness/THICKNESS_ANALYSIS.md) and [relaxed-region](../04_relaxed_region/ANALYSIS.md) analyses.
+Updated on 22 September 2026 against the archived J39.1 rerun. Acceptance uses the predefined [ROADMAP §5.6.6](../../ROADMAP.md#566-convergence-acceptance) thresholds. This report integrates the native endpoint evidence with the [thickness](03_SLAB_THICKNESS_ANALYSIS.md) and [relaxed-region](04_RELAXED_REGION_ANALYSIS.md) analyses.
 
 ## Matched β bulk reference
 
 ### Provenance and geometry
 
-Source: [bulk_reference](../../../calculation/02_numerical_convergence/05_combined_verification/bulk_reference), **J39.1**, attempt `8447cc08b9f04f7482fb3081d943cee8`. CMW records normal completion with exit 0; archived OUTCAR, OSZICAR and runtime metadata match this registered attempt. All three endpoint energy definitions reproduce the earlier J38.1 result to the printed 10⁻⁸ eV precision. The scientific checks below use the archived J39.1 outputs.
+Source: [bulk_reference](../../calculation/02_numerical_convergence/05_combined_verification/bulk_reference), **J39.1**, attempt `8447cc08b9f04f7482fb3081d943cee8`. CMW records normal completion with exit 0; archived OUTCAR, OSZICAR and runtime metadata match this registered attempt. All three endpoint energy definitions reproduce the earlier J38.1 result to the printed 10⁻⁸ eV precision. The scientific checks below use the archived J39.1 outputs.
 
-The POSCAR parses as **S₄In₂Zn: seven atoms, one ZnIn₂S₄ formula unit**. Its cell and coordinates match the accepted [WP1 β CONTCAR](../../../../wp1_polymorph_polytype_benchmark/calculation/01_geometry_optimisation/beta/CONTCAR). This is the accepted periodic β parent used to construct the slabs, with no Selective Dynamics constraints or added vacuum. The 2.728575 Å interlayer gap belongs to the bulk structure.
+The POSCAR parses as **S₄In₂Zn: seven atoms, one ZnIn₂S₄ formula unit**. Its cell and coordinates match the accepted [WP1 β CONTCAR](../../../wp1_polymorph_polytype_benchmark/calculation/01_geometry_optimisation/beta/CONTCAR). This is the accepted periodic β parent used to construct the slabs, with no Selective Dynamics constraints or added vacuum. The 2.728575 Å interlayer gap belongs to the bulk structure.
 
 Cell vectors, in Å, are `(3.8782842923155867, 0, 0)`, `(−1.9391421461577933, 3.3586927202930394, 0)` and `(0, 0, 12.1484331332749314)`. Thus a≈b=3.8782842923 Å, c=12.1484331333 Å, α=β=90°, γ=120° and **V=158.2450674694 Å³**. Coordinates, lattice and volume are finite. There is exactly one fixed-geometry evaluation; final CONTCAR and XML agree to approximately 6.1×10⁻⁸ Å, and input/final geometry differences are only output-rounding effects. No ionic move or geometry optimization occurred.
 
@@ -63,9 +63,9 @@ E₀ is the primary comparison, consistently for bulk and slabs. Its notation do
 
 | Slab / job | Accepted native directory | Formula units / atoms | NELM | Converged SCFs / evaluations | Final max force (eV/Å) |
 | --- | --- | --- | --- | --- | --- |
-| 2L / J33.1 | [2L output](../../../calculation/02_numerical_convergence/03_slab_thickness/01_relaxation/beta001_2L) | 2 / 14 | 120 | 33 / 33 | 0.01355518 |
-| 4L / J34.1 | [4L output](../../../calculation/02_numerical_convergence/03_slab_thickness/01_relaxation/beta001_4L) | 4 / 28 | 120 | 14 / 14 | 0.01802549 |
-| 6L / J36.1 | [6L output](../../../calculation/02_numerical_convergence/03_slab_thickness/01_relaxation/beta001_6L/retry_nelm300_r1) | 6 / 42 | 300 | 16 / 16 | 0.01596172 |
+| 2L / J33.1 | [2L output](../../calculation/02_numerical_convergence/03_slab_thickness/01_relaxation/beta001_2L) | 2 / 14 | 120 | 33 / 33 | 0.01355518 |
+| 4L / J34.1 | [4L output](../../calculation/02_numerical_convergence/03_slab_thickness/01_relaxation/beta001_4L) | 4 / 28 | 120 | 14 / 14 | 0.01802549 |
+| 6L / J36.1 | [6L output](../../calculation/02_numerical_convergence/03_slab_thickness/01_relaxation/beta001_6L/retry_nelm300_r1) | 6 / 42 | 300 | 16 / 16 | 0.01596172 |
 
 **J35.1 is excluded.** The files at the 6L parent level preserve the failed attempt. All 6L scientific endpoints here come exclusively from `beta001_6L/retry_nelm300_r1`, confirmed against the J36.1 CMW identity and registered native outputs. The retry archive contains outputs rather than another complete input set; its original POSCAR/KPOINTS/POTCAR were checked through the source location recorded in its own RUN_METADATA. Its starting POSCAR is byte-identical to the original 6L geometry, and executed OUTCAR confirms NELM=300. No failed J35 energy enters a table or fit.
 
@@ -230,7 +230,7 @@ J37.1 has **28/28 genuinely converged electronic cycles**, explicit constrained 
 
 **J34.1 already embodies this exact combined production recipe.** Its numerical and ionic convergence are verified above. The independent J39.1 bulk energy now supplies the missing reference; J36.1 supplies thickness refinement and J37.1 the relaxed-region control. These existing calculations jointly constitute the combined verification; another calculation merely to populate a stage directory would add no changed scientific variable.
 
-The earlier [k-point](../01_kpoints_and_encut/KPOINTS_ANALYSIS.md), [cutoff](../01_kpoints_and_encut/ENCUT_ANALYSIS.md) and [vacuum](../02_vacuum/VACUUM_ANALYSIS.md) studies selected 10×10×1, 500 eV and approximately 20 Å on the fixed basal seed. Their final native energies were rechecked here: k10→k12 changes E₀/A by approximately +0.0980 meV/Å²; 500→600 eV by −0.048947 meV/Å²; 20→25→30 Å successive changes are +0.069497 and +0.040477 meV/Å². Reported maximum work-function changes are 0.024501, 0.001838 and 0.002676 eV, respectively. All support the selected screening settings.
+The earlier [k-point](../01_kpoints_and_encut/01_KPOINTS_ANALYSIS.md), [cutoff](01_ENCUT_ANALYSIS.md) and [vacuum](02_VACUUM_ANALYSIS.md) studies selected 10×10×1, 500 eV and approximately 20 Å on the fixed basal seed. Their final native energies were rechecked here: k10→k12 changes E₀/A by approximately +0.0980 meV/Å²; 500→600 eV by −0.048947 meV/Å²; 20→25→30 Å successive changes are +0.069497 and +0.040477 meV/Å². Reported maximum work-function changes are 0.024501, 0.001838 and 0.002676 eV, respectively. All support the selected screening settings.
 
 Those tests established sampling, cutoff and vacuum sensitivity on a single-layer geometry. They did not jointly refine those settings on the final 4L geometry or include a matched bulk calculation at each k-point/cutoff refinement. Consequently, they support the selected screening settings without establishing the full systematic error in absolute Γ_pair. The final endpoints verify the combined recipe, vacuum-reference extraction and the specified thickness/constraint comparisons.
 

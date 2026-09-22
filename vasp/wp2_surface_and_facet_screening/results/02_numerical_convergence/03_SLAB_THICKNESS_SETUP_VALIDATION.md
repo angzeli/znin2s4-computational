@@ -6,7 +6,7 @@
 
 Process completion, electronic self-consistency and structural convergence are assessed separately. A normal exit alone does not qualify energies or forces, and an electronically unconverged force evaluation cannot support production ionic motion. The objective is a reproducible, usable protocol rather than termination alone.
 
-The [setup-validation archive](../../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation) contains eight input sets. Native results are present for **E3, E2x, R4L, P4L and F4L**. **E0, E1 and E2 contain inputs only:** no OUTCAR, OSZICAR, completed-run metadata, parsed trajectories or analysis records are present in those three directories. No existing figures or trajectory CSVs are present anywhere in this archive. Consequently, the later validation chain can be reconstructed quantitatively, but the requested retrospective E0/E1/E2 performance comparison cannot. Their historical convergence claims and E1→E2 improvement factors are not treated as independently verified results here.
+The [setup-validation archive](../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation) contains eight input sets. Native results are present for **E3, E2x, R4L, P4L and F4L**. **E0, E1 and E2 contain inputs only:** no OUTCAR, OSZICAR, completed-run metadata, parsed trajectories or analysis records are present in those three directories. No existing figures or trajectory CSVs are present anywhere in this archive. Consequently, the later validation chain can be reconstructed quantitatively, but the requested retrospective E0/E1/E2 performance comparison cannot. Their historical convergence claims and E1→E2 improvement factors are not treated as independently verified results here.
 
 ## 2. Starting problem: canonical slab convergence
 
@@ -24,11 +24,11 @@ Input comparisons establish the experimental design exactly. E1→E2 adds only `
 
 | Test | Model | Intervention / budget | Electronic result supported by this archive | Decision |
 | --- | --- | --- | --- | --- |
-| [E0](../../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation/E0_r1) | 2L, 14 atoms | Canonical inputs; 60-step ceiling | Outputs absent; actual iteration count, residuals and EDIFF status unverified | Baseline design retained; no convergence claim |
-| [E1](../../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation/E1_r1) | 4L, 28 atoms | Canonical inputs; 60-step ceiling | Outputs absent; stronger oscillation relative to E0 cannot be quantified | Baseline design retained; no convergence claim |
-| [E2](../../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation/E2_r1) | Same fixed 4L geometry | AMIN=0.01; 60-step ceiling | Outputs absent; reported near-threshold behavior and initial nonconvergence cannot be rechecked | Candidate recipe subsequently tested by E2x |
-| [E3](../../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation/E3_r1/OUTCAR) | Same fixed 4L geometry | AMIX=0.2, BMIX=0.0001; effective AMIN=0.10; 60 steps | 60 iterations, no EDIFF termination; strong late amplification and numerical warnings | Rejected |
-| [E2x](../../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation/E2x_r1/OUTCAR) | Same fixed 4L geometry | Exact E2 recipe; ceiling raised to 120 | Genuine EDIFF at iteration **69** | Fixed-geometry qualification passed |
+| [E0](../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation/E0_r1) | 2L, 14 atoms | Canonical inputs; 60-step ceiling | Outputs absent; actual iteration count, residuals and EDIFF status unverified | Baseline design retained; no convergence claim |
+| [E1](../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation/E1_r1) | 4L, 28 atoms | Canonical inputs; 60-step ceiling | Outputs absent; stronger oscillation relative to E0 cannot be quantified | Baseline design retained; no convergence claim |
+| [E2](../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation/E2_r1) | Same fixed 4L geometry | AMIN=0.01; 60-step ceiling | Outputs absent; reported near-threshold behavior and initial nonconvergence cannot be rechecked | Candidate recipe subsequently tested by E2x |
+| [E3](../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation/E3_r1/OUTCAR) | Same fixed 4L geometry | AMIX=0.2, BMIX=0.0001; effective AMIN=0.10; 60 steps | 60 iterations, no EDIFF termination; strong late amplification and numerical warnings | Rejected |
+| [E2x](../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation/E2x_r1/OUTCAR) | Same fixed 4L geometry | Exact E2 recipe; ceiling raised to 120 | Genuine EDIFF at iteration **69** | Fixed-geometry qualification passed |
 
 ### E0–E2: controlled design, incomplete historical result archive
 
@@ -38,7 +38,7 @@ Selection of AMIN=0.01 is therefore supported here by its **demonstrated suffici
 
 ### E3: severe amplification, despite normal process completion
 
-The [E3 electronic trajectory](../../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation/E3_r1/OSZICAR) ends after 60 iterations without an EDIFF marker. The final `dE` is −55,767 eV and `d eps` is −25,772 eV; the final wavefunction residual is 73.4, and the last printed charge residual is 38.7 at iteration 59. These are failed SCF diagnostics, not physically interpretable slab energetics.
+The [E3 electronic trajectory](../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation/E3_r1/OSZICAR) ends after 60 iterations without an EDIFF marker. The final `dE` is −55,767 eV and `d eps` is −25,772 eV; the final wavefunction residual is 73.4, and the last printed charge residual is 38.7 at iteration 59. These are failed SCF diagnostics, not physically interpretable slab energetics.
 
 The following window statistics use absolute values for medians and signed values for peak-to-peak amplitudes. Energy changes are in eV; `rms` and `rms(c)` retain their native VASP diagnostic normalization.
 
@@ -48,7 +48,7 @@ The following window statistics use absolute values for medians and signed value
 | 41–50 | 298.845 | 84.6115 | 4.210 | 15.85 | 1,190.64 | 479.057 |
 | 51–60 | 11,799.5 | 5,954.15 | 27.25 | 20.60 | 146,261 | 39,432.1 |
 
-The final window contains nine reported charge residuals because iteration 60 omits `rms(c)`. The [stdout log](../../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation/E3_r1/stdout.log) contains BRMIX charge-density inconsistency messages, repeated non-Hermitian subspace-matrix warnings, and an explicit NELM nonconvergence warning. Thus the trajectory exhibits severe late amplification rather than a stable near-threshold plateau. A normal timing footer and launcher exit status zero do not change its scientific failure.
+The final window contains nine reported charge residuals because iteration 60 omits `rms(c)`. The [stdout log](../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation/E3_r1/stdout.log) contains BRMIX charge-density inconsistency messages, repeated non-Hermitian subspace-matrix warnings, and an explicit NELM nonconvergence warning. Thus the trajectory exhibits severe late amplification rather than a stable near-threshold plateau. A normal timing footer and launcher exit status zero do not change its scientific failure.
 
 ### E2x: genuine fixed-geometry convergence of the selected recipe
 
@@ -75,7 +75,7 @@ These are the last printed spectra, not necessarily quantities evaluated on the 
 
 ## 4. Moving-geometry validation: R4L
 
-A converged SCF solution at one geometry does not establish that force evaluations remain reliable after atomic motion. [R4L](../../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation/R4L_r1/OUTCAR) tests this explicitly using the E2x initial geometry and electronic recipe, with `IBRION=2`, `NSW=3`, fixed cell and `NELM=120` per electronic cycle. All three cycles have their own EDIFF termination marker; XML and OSZICAR iteration counts agree.
+A converged SCF solution at one geometry does not establish that force evaluations remain reliable after atomic motion. [R4L](../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation/R4L_r1/OUTCAR) tests this explicitly using the E2x initial geometry and electronic recipe, with `IBRION=2`, `NSW=3`, fixed cell and `NELM=120` per electronic cycle. All three cycles have their own EDIFF termination marker; XML and OSZICAR iteration counts agree.
 
 | Ionic evaluation | Initialization | Electronic iterations | Final dE (eV) | Final d eps (eV) | Maximum force (eV/Å) | Largest move from preceding evaluated geometry (Å) |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
@@ -89,7 +89,7 @@ R4L therefore passes **short moving-geometry validation**, not structural relaxa
 
 ## 5. Full 4L relaxation: P4L
 
-[P4L](../../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation/P4L_r1/OUTCAR) starts from R4L's final force-evaluated geometry with a fresh electronic initialization. It retains AMIN=0.01, `EDIFF=10⁻⁶ eV`, `NELM=120`, `IBRION=2`, `ISIF=2` and `EDIFFG=−0.02 eV/Å`, with `NSW=100` as its ceiling.
+[P4L](../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation/P4L_r1/OUTCAR) starts from R4L's final force-evaluated geometry with a fresh electronic initialization. It retains AMIN=0.01, `EDIFF=10⁻⁶ eV`, `NELM=120`, `IBRION=2`, `ISIF=2` and `EDIFFG=−0.02 eV/Å`, with `NSW=100` as its ceiling.
 
 **All 16 ionic evaluations reach EDIFF**, and VASP explicitly reports `reached required accuracy - stopping structural energy minimisation`. The electronic iteration counts are:
 
@@ -113,9 +113,9 @@ The largest displacement between consecutive evaluated geometries is **0.011808 
 
 ## 6. Independent endpoint force audit: F4L
 
-The archived [F4L input](../../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation/F4L/INCAR) corresponds to the revised audit budget: `NELM=180`. Its POSCAR is byte-identical to P4L's final CONTCAR; KPOINTS and POTCAR are unchanged. Relative to P4L's INCAR, only `EDIFF: 10⁻⁶→10⁻⁷ eV`, `NELM: 120→180`, `NSW: 100→0` and `IBRION: 2→−1` change. The audit retains AMIN=0.01 and uses fresh `ISTART=0`, `ICHARG=2`, with no inherited electronic restart. The force-evaluated endpoint positions in the two XML records are identical at printed precision.
+The archived [F4L input](../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation/F4L/INCAR) corresponds to the revised audit budget: `NELM=180`. Its POSCAR is byte-identical to P4L's final CONTCAR; KPOINTS and POTCAR are unchanged. Relative to P4L's INCAR, only `EDIFF: 10⁻⁶→10⁻⁷ eV`, `NELM: 120→180`, `NSW: 100→0` and `IBRION: 2→−1` change. The audit retains AMIN=0.01 and uses fresh `ISTART=0`, `ICHARG=2`, with no inherited electronic restart. The force-evaluated endpoint positions in the two XML records are identical at printed precision.
 
-[F4L OUTCAR](../../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation/F4L/OUTCAR) explicitly reaches EDIFF at **iteration 139**. Final `dE=+8.0319×10⁻⁸ eV` and `d eps=−4.1843×10⁻⁹ eV` satisfy the tighter criterion. VASP elapsed time is **10,076.510 s (2.799 h)**. The 180-iteration limit is a ceiling, not a requirement to consume all iterations.
+[F4L OUTCAR](../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation/F4L/OUTCAR) explicitly reaches EDIFF at **iteration 139**. Final `dE=+8.0319×10⁻⁸ eV` and `d eps=−4.1843×10⁻⁹ eV` satisfy the tighter criterion. VASP elapsed time is **10,076.510 s (2.799 h)**. The 180-iteration limit is a ceiling, not a requirement to consume all iterations.
 
 Differences below are F4L minus P4L on the same geometry. Forces use full atomic vector norms; component RMSE is over all 84 Cartesian components of the 28-atom slab.
 
@@ -143,7 +143,7 @@ The audit's approach to EDIFF is oscillatory, with intermittent amplification. I
 
 ### Production relaxation
 
-The accepted settings are those of [P4L INCAR](../../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation/P4L_r1/INCAR), checked against the executed OUTCAR/XML configuration. AMIN=0.01 is the accepted intervention; AMIX and BMIX remain their recorded default values. The validated physical model is non-spin-polarized PBE with D3(BJ), using PAW-PBE S, In_d and Zn datasets dated 06Sep2000 in the POSCAR species-block order. Species blocks must retain their corresponding potential ordering.
+The accepted settings are those of [P4L INCAR](../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation/P4L_r1/INCAR), checked against the executed OUTCAR/XML configuration. AMIN=0.01 is the accepted intervention; AMIX and BMIX remain their recorded default values. The validated physical model is non-spin-polarized PBE with D3(BJ), using PAW-PBE S, In_d and Zn datasets dated 06Sep2000 in the POSCAR species-block order. Species blocks must retain their corresponding potential ordering.
 
 | Setting | Accepted value / interpretation |
 | --- | --- |
@@ -183,6 +183,6 @@ The campaign does **not** establish 2L/4L/6L thickness convergence, that 4L is a
 
 ## Data provenance
 
-All campaign conclusions and numerical results in this analysis were derived from the locally archived calculations under [calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation](../../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation). Native VASP OUTCAR, OSZICAR, stdout, structures and electronic-state records were treated as primary evidence. XML was used for higher-precision forces and evaluated geometries, cross-checked against OUTCAR; force components agree within its 5×10⁻⁷ eV/Å printing precision. Local execution metadata was used only for resource, initialization and process checks. Its process-success fields were not substituted for scientific convergence evidence.
+All campaign conclusions and numerical results in this analysis were derived from the locally archived calculations under [calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation](../../calculation/02_numerical_convergence/03_slab_thickness/00_setup_validation). Native VASP OUTCAR, OSZICAR, stdout, structures and electronic-state records were treated as primary evidence. XML was used for higher-precision forces and evaluated geometries, cross-checked against OUTCAR; force components agree within its 5×10⁻⁷ eV/Å printing precision. Local execution metadata was used only for resource, initialization and process checks. Its process-success fields were not substituted for scientific convergence evidence.
 
 Window statistics, force differences and periodic geometry checks were recomputed from native records. A missing terminating-step `rms(c)` was left missing rather than replaced with zero. No parsed tables or plots were available in this directory, so none was linked or duplicated. E0/E1/E2 result omissions are explicitly retained as evidence gaps. Ignored local XML, execution metadata and licensed potential files support verification but are not assumed to be distributed with a Git checkout; linked evidence uses the archived repository paths. The external VASP references explain parameter semantics only and supply no campaign measurements.

@@ -1,14 +1,14 @@
 # WP2 Stage 02 — basal vacuum convergence
 
-Reviewed on 15 September 2026 from the completed [19.964 Å baseline](../../../calculation/02_numerical_convergence/01_kpoints_and_encut/beta001_encut/500eV_k10), [25 Å](../../../calculation/02_numerical_convergence/02_vacuum/beta001_25A) and [30 Å](../../../calculation/02_numerical_convergence/02_vacuum/beta001_30A) calculations.
+Reviewed on 15 September 2026 from the completed [19.964 Å baseline](../../calculation/02_numerical_convergence/01_kpoints_and_encut/beta001_encut/500eV_k10), [25 Å](../../calculation/02_numerical_convergence/02_vacuum/beta001_25A) and [30 Å](../../calculation/02_numerical_convergence/02_vacuum/beta001_30A) calculations.
 
-**Retain approximately 20 Å of actual atom-free separation for this single-layer β(001) model.** The largest energy change from the baseline is 0.110 meV/Å², and the largest face-specific work-function change is 0.00268 eV. Successive refinements pass the [roadmap's working tolerances](../../../ROADMAP.md) of 1 meV/Å² and 0.05 eV. This establishes vacuum insensitivity at those tolerances for the measured quantities on this fixed model; thickness and final-geometry validation remain open.
+**Retain approximately 20 Å of actual atom-free separation for this single-layer β(001) model.** The largest energy change from the baseline is 0.110 meV/Å², and the largest face-specific work-function change is 0.00268 eV. Successive refinements pass the [roadmap's working tolerances](../../ROADMAP.md) of 1 meV/Å² and 0.05 eV. This establishes vacuum insensitivity at those tolerances for the measured quantities on this fixed model; thickness and final-geometry validation remain open.
 
 ## Comparison and completion
 
 Vacuum means the outer-atom slab-to-image separation, not the total cell height. The baseline is **19.96375274 Å**, rather than exactly 20 Å. All cases retain the frozen A2 septuple sheet (`beta_001_t07`), its seven atoms and species order, internal Cartesian geometry, lower/upper face identities, 9.45610547 Å thickness and 13.02596522 Å² area. Only the normal cell vector and a common centering translation change.
 
-The KPOINTS and local POTCAR files are byte-identical. INCAR settings differ only in the descriptive `SYSTEM` label: VASP 6.6.1, PBE+D3(BJ), 500 eV, Γ-centered 10×10×1 sampling, `EDIFF=10⁻⁶ eV`, `ISPIN=1`, Gaussian `SIGMA=0.05 eV`, and z-directed dipole correction with `DIPOL=(0.5,0.5,0.5)`. These are fresh static calculations, using the provisional [k-point](../01_kpoints_and_encut/KPOINTS_ANALYSIS.md) and [cutoff](../01_kpoints_and_encut/ENCUT_ANALYSIS.md) selections.
+The KPOINTS and local POTCAR files are byte-identical. INCAR settings differ only in the descriptive `SYSTEM` label: VASP 6.6.1, PBE+D3(BJ), 500 eV, Γ-centered 10×10×1 sampling, `EDIFF=10⁻⁶ eV`, `ISPIN=1`, Gaussian `SIGMA=0.05 eV`, and z-directed dipole correction with `DIPOL=(0.5,0.5,0.5)`. These are fresh static calculations, using the provisional [k-point](../01_kpoints_and_encut/01_KPOINTS_ANALYSIS.md) and [cutoff](../01_kpoints_and_encut/01_ENCUT_ANALYSIS.md) selections.
 
 All three terminated normally, reached EDIFF and contain one complete static step. XML/OUTCAR energies, forces and executed settings agree within printed precision. POSCAR, CONTCAR, XML and density/potential structures agree within each run. Stderr is empty, with no identified fatal-error or timeout evidence.
 

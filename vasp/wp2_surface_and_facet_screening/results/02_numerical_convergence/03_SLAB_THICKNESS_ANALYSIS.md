@@ -1,12 +1,12 @@
 # WP2 Stage 02 — β(001) slab-thickness convergence
 
-Reviewed on 22 September 2026 using the production relaxations in [01_relaxation](../../../calculation/02_numerical_convergence/03_slab_thickness/01_relaxation). The calculation outputs were archived in commit `28aee39`.
+Reviewed on 22 September 2026 using the production relaxations in [01_relaxation](../../calculation/02_numerical_convergence/03_slab_thickness/01_relaxation). The calculation outputs were archived in commit `28aee39`.
 
 **All three accepted relaxations converge electronically and structurally. The 4L→6L comparison meets the predefined project-specific 0.05 eV working tolerance for the measured face-specific work functions and frontier-level diagnostics; 2L→4L does not. Interior electrostatics show partial local agreement but retain appreciable thickness dependence. Surface-excess-energy convergence remains unverified without a matched bulk reference.** Thus 4L is a provisional economical choice for the measured vacuum-referenced diagnostics, not an electrostatically converged interior or an accepted thickness for all surface properties.
 
 ## Tolerance provenance
 
-The **0.05 eV criterion was demonstrably predefined**. [ROADMAP §5.6.6, Convergence Acceptance](../../../ROADMAP.md#566-convergence-acceptance) specifies approximately 0.05 eV for relevant vacuum-referenced electronic levels, alongside an energy criterion and qualitative checks. It is present in [commit `2d03597`, lines 371–398](https://github.com/angzeli/znin2s4-computational/blob/2d0359779f329f538951a7d1fefc1dc430e8a3be/vasp/wp2_surface_and_facet_screening/ROADMAP.md#L371-L398), authored and committed on **14 September 2026 at 19:37 +08:00**. The earlier [vacuum analysis](../02_vacuum/VACUUM_ANALYSIS.md), committed as `3ad9305` on 15 September, also applies this target. Both precede completion of J34.1 on 20 September and J36.1 on 21 September (UTC dates from their runtime records).
+The **0.05 eV criterion was demonstrably predefined**. [ROADMAP §5.6.6, Convergence Acceptance](../../ROADMAP.md#566-convergence-acceptance) specifies approximately 0.05 eV for relevant vacuum-referenced electronic levels, alongside an energy criterion and qualitative checks. It is present in [commit `2d03597`, lines 371–398](https://github.com/angzeli/znin2s4-computational/blob/2d0359779f329f538951a7d1fefc1dc430e8a3be/vasp/wp2_surface_and_facet_screening/ROADMAP.md#L371-L398), authored and committed on **14 September 2026 at 19:37 +08:00**. The earlier [vacuum analysis](02_VACUUM_ANALYSIS.md), committed as `3ad9305` on 15 September, also applies this target. Both precede completion of J34.1 on 20 September and J36.1 on 21 September (UTC dates from their runtime records).
 
 Accordingly, this report uses **“predefined project-specific working tolerance of 0.05 eV for screening-level electronic descriptors.”** This is an operational accuracy target, not a universal community standard. It was not selected from the observed 0.042153 eV frontier change. The roadmap calls for tighter convergence when resolving smaller mechanistic differences. It does not predefine the interior averaging window or a slope criterion used in the additional analysis below.
 
@@ -14,9 +14,9 @@ Accordingly, this report uses **“predefined project-specific working tolerance
 
 | Slab | Job | Accepted output directory | Formula units / atoms | NELM |
 | --- | --- | --- | ---: | ---: |
-| 2L | J33.1 | [beta001_2L](../../../calculation/02_numerical_convergence/03_slab_thickness/01_relaxation/beta001_2L) | 2 / 14 | 120 |
-| 4L | J34.1 | [beta001_4L](../../../calculation/02_numerical_convergence/03_slab_thickness/01_relaxation/beta001_4L) | 4 / 28 | 120 |
-| 6L | J36.1 | [beta001_6L/retry_nelm300_r1](../../../calculation/02_numerical_convergence/03_slab_thickness/01_relaxation/beta001_6L/retry_nelm300_r1) | 6 / 42 | 300 |
+| 2L | J33.1 | [beta001_2L](../../calculation/02_numerical_convergence/03_slab_thickness/01_relaxation/beta001_2L) | 2 / 14 | 120 |
+| 4L | J34.1 | [beta001_4L](../../calculation/02_numerical_convergence/03_slab_thickness/01_relaxation/beta001_4L) | 4 / 28 | 120 |
+| 6L | J36.1 | [beta001_6L/retry_nelm300_r1](../../calculation/02_numerical_convergence/03_slab_thickness/01_relaxation/beta001_6L/retry_nelm300_r1) | 6 / 42 | 300 |
 
 The files directly under `beta001_6L` are the preserved **failed J35.1 attempt**, which exhausted 120 electronic iterations on the original geometry. Its incomplete outputs are excluded from every endpoint comparison. The parent INCAR still records `NELM=120`; the accepted retry's OUTCAR records `NELM=300`. J36.1 used the same original geometry and a fresh electronic start, changing only this iteration ceiling.
 
@@ -77,7 +77,7 @@ For this stoichiometric series, the paired surface excess is
 
 `Γ_pair(N) = [E₀,N − N e_bulk]/A`.
 
-Consequently, `ΔΓ_pair = [ΔE₀ − ΔN e_bulk]/A`. Unlike the fixed-composition vacuum comparison, **the bulk term does not cancel** when changing thickness. This directory contains no matched bulk reference, so the [roadmap's](../../../ROADMAP.md) 1 meV/Å² criterion cannot be independently evaluated here. C/A measures the difference between successive Γ_pair increments; it is not either increment itself and is not an automatic pass/fail test against that tolerance.
+Consequently, `ΔΓ_pair = [ΔE₀ − ΔN e_bulk]/A`. Unlike the fixed-composition vacuum comparison, **the bulk term does not cancel** when changing thickness. This directory contains no matched bulk reference, so the [roadmap's](../../ROADMAP.md) 1 meV/Å² criterion cannot be independently evaluated here. C/A measures the difference between successive Γ_pair increments; it is not either increment itself and is not an automatic pass/fail test against that tolerance.
 
 A three-point linear fit gives a slope of −28.74792138 eV/formula unit. Using that fitted slope as the bulk reference would produce apparent adjacent Γ_pair changes of only ±0.812666 meV/Å², but the reference was determined from those same three points. That is a fit-consistency diagnostic, not independent evidence that the series is asymptotic. Slab-energy fitting can be useful when its thickness range is demonstrated to be adequate ([Fiorentini and Methfessel](https://arxiv.org/abs/cond-mat/9610046)); no absolute surface energy or separate individual-face energies are assigned here.
 
@@ -135,11 +135,7 @@ To suppress atomic-scale oscillations, a box average uses the **original structu
 
 The integral is exact for a periodic piecewise-linear interpolation of the native planar grid. No fitted slope is removed and no vertical shift is fitted to make profiles coincide. Each profile is separately aligned as `V_M − V_vac,lower` and `V_M − V_vac,upper`, using the same distant-vacuum windows as above. The two references are never averaged.
 
-The common comparison window is **u = z−g ∈ [−L/4,+L/4]**, width **6.074217 Å**. Its full averaging footprint lies inside every slab's atomic envelope, including 2L. Means and RMS differences use trapezoidal integration over 2001 common u points; slopes are least-squares fits and ranges are maximum minus minimum. The figure displays the smoothed profile only where the full averaging box lies inside the slab. This fixed-repeat smoothing is an interpretive aid: relaxation leaves some motif-scale variation, and a finite-window mean is not a unique bulk potential.
-
-![Planar and repeat-averaged interior electrostatic profiles](SLAB_INTERIOR_ELECTROSTATICS.png)
-
-*Top: native planar potentials and repeat averages, each relative to its lower vacuum; grey bars mark relaxed layer envelopes. Bottom: repeat averages using lower- and upper-vacuum alignment separately; grey shading marks the common central comparison window. The vacuum discontinuity is outside the interior analysis. [Vector PDF](SLAB_INTERIOR_ELECTROSTATICS.pdf).*
+The common comparison window is **u = z−g ∈ [−L/4,+L/4]**, width **6.074217 Å**. Its full averaging footprint lies inside every slab's atomic envelope, including 2L. Means and RMS differences use trapezoidal integration over 2001 common u points; slopes are least-squares fits and ranges are maximum minus minimum. The vacuum discontinuity lies outside the interior analysis. This fixed-repeat smoothing is an interpretive aid: relaxation leaves some motif-scale variation, and a finite-window mean is not a unique bulk potential.
 
 ### Central profiles and thickness dependence
 
@@ -173,7 +169,7 @@ The local potential changes by +0.042862/+0.025216 eV for lower/upper alignment 
 
 **Assessment: partial support for local interior similarity; insufficient support for a converged slab-interior electrostatic profile.** In particular, 6L should not be described as having established a bulk-like plateau, and 4L should not be called electrostatically converged merely because its work functions meet the screening tolerance.
 
-The [reproduction helper](../../../script/wp2/analyse_slab_interior.py) exports [native-grid planar potentials, repeat averages and densities](SLAB_INTERIOR_PROFILES.csv), together with both vacuum references and an interior-validity flag. Absolute CSV potentials require subtraction of the stated same-run reference before cross-slab comparison. The helper cross-checks planar means, endpoint geometry, periodic averaging, electron counts and units; every central-window average is independently recomputed by explicit trapezoidal integration through the native knots. `--check-only` performs these checks without exporting files. No native calculation file is written.
+The [reproduction helper](../../script/wp2/analyse_slab_interior.py) exports [native-grid planar potentials, repeat averages and densities](03_SLAB_INTERIOR_PROFILES.csv), together with both vacuum references and an interior-validity flag. Absolute CSV potentials require subtraction of the stated same-run reference before cross-slab comparison. The helper cross-checks planar means, endpoint geometry, periodic averaging, electron counts and units; every central-window average is independently recomputed by explicit trapezoidal integration through the native knots. `--check-only` performs these checks without exporting files. No native calculation file is written.
 
 ## Structural consistency and conclusion
 
