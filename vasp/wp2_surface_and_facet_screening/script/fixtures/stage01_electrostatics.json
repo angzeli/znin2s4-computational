@@ -1,0 +1,359 @@
+{
+  "two_faces": {
+    "lower": {
+      "status": "CANDIDATE_PLATEAU",
+      "geometric_window": {
+        "status": "CANDIDATE_PLATEAU",
+        "z_start_A": 1.0,
+        "z_end_A": 8.0,
+        "width_A": 7.0,
+        "points": 15,
+        "mean_potential_eV": 3.0,
+        "slope_eV_per_A": 4.594197023805007e-17,
+        "detrended_max_residual_eV": 4.440892098500626e-16,
+        "potential_range_eV": 0.0,
+        "mean_density_e_per_A3": null,
+        "maximum_abs_density_e_per_A3": null,
+        "density_status": "UNAVAILABLE"
+      },
+      "segments": [
+        {
+          "status": "CANDIDATE_PLATEAU",
+          "z_start_A": 1.0,
+          "z_end_A": 8.0,
+          "width_A": 7.0,
+          "points": 15,
+          "mean_potential_eV": 3.0,
+          "slope_eV_per_A": 4.594197023805007e-17,
+          "detrended_max_residual_eV": 4.440892098500626e-16,
+          "potential_range_eV": 0.0,
+          "mean_density_e_per_A3": null,
+          "maximum_abs_density_e_per_A3": null,
+          "density_status": "UNAVAILABLE"
+        }
+      ],
+      "selected_window": {
+        "status": "CANDIDATE_PLATEAU",
+        "z_start_A": 1.0,
+        "z_end_A": 8.0,
+        "width_A": 7.0,
+        "points": 15,
+        "mean_potential_eV": 3.0,
+        "slope_eV_per_A": 4.594197023805007e-17,
+        "detrended_max_residual_eV": 4.440892098500626e-16,
+        "potential_range_eV": 0.0,
+        "mean_density_e_per_A3": null,
+        "maximum_abs_density_e_per_A3": null,
+        "density_status": "UNAVAILABLE"
+      },
+      "discontinuity_count": 0,
+      "jump_threshold_eV": 0.1
+    },
+    "upper": {
+      "status": "CANDIDATE_PLATEAU",
+      "geometric_window": {
+        "status": "CANDIDATE_PLATEAU",
+        "z_start_A": 22.0,
+        "z_end_A": 29.0,
+        "width_A": 7.0,
+        "points": 15,
+        "mean_potential_eV": 4.0,
+        "slope_eV_per_A": -2.6883314987356267e-17,
+        "detrended_max_residual_eV": 8.881784197001252e-16,
+        "potential_range_eV": 0.0,
+        "mean_density_e_per_A3": null,
+        "maximum_abs_density_e_per_A3": null,
+        "density_status": "UNAVAILABLE"
+      },
+      "segments": [
+        {
+          "status": "CANDIDATE_PLATEAU",
+          "z_start_A": 22.0,
+          "z_end_A": 29.0,
+          "width_A": 7.0,
+          "points": 15,
+          "mean_potential_eV": 4.0,
+          "slope_eV_per_A": -2.6883314987356267e-17,
+          "detrended_max_residual_eV": 8.881784197001252e-16,
+          "potential_range_eV": 0.0,
+          "mean_density_e_per_A3": null,
+          "maximum_abs_density_e_per_A3": null,
+          "density_status": "UNAVAILABLE"
+        }
+      ],
+      "selected_window": {
+        "status": "CANDIDATE_PLATEAU",
+        "z_start_A": 22.0,
+        "z_end_A": 29.0,
+        "width_A": 7.0,
+        "points": 15,
+        "mean_potential_eV": 4.0,
+        "slope_eV_per_A": -2.6883314987356267e-17,
+        "detrended_max_residual_eV": 8.881784197001252e-16,
+        "potential_range_eV": 0.0,
+        "mean_density_e_per_A3": null,
+        "maximum_abs_density_e_per_A3": null,
+        "density_status": "UNAVAILABLE"
+      },
+      "discontinuity_count": 0,
+      "jump_threshold_eV": 0.1
+    },
+    "upper_minus_lower_potential_eV": 1.0,
+    "interpretation": "Candidate windows only; human review required. No forced plateau or vacuum alignment."
+  },
+  "sloped": {
+    "lower": {
+      "status": "NO_CONFIRMED_PLATEAU",
+      "geometric_window": {
+        "status": "NONFLAT_OR_TOO_SHORT",
+        "z_start_A": 1.0,
+        "z_end_A": 8.0,
+        "width_A": 7.0,
+        "points": 15,
+        "mean_potential_eV": 0.36,
+        "slope_eV_per_A": 0.08000000000000002,
+        "detrended_max_residual_eV": 3.3306690738754696e-16,
+        "potential_range_eV": 0.56,
+        "mean_density_e_per_A3": null,
+        "maximum_abs_density_e_per_A3": null,
+        "density_status": "UNAVAILABLE"
+      },
+      "segments": [
+        {
+          "status": "NONFLAT_OR_TOO_SHORT",
+          "z_start_A": 1.0,
+          "z_end_A": 8.0,
+          "width_A": 7.0,
+          "points": 15,
+          "mean_potential_eV": 0.36,
+          "slope_eV_per_A": 0.08000000000000002,
+          "detrended_max_residual_eV": 3.3306690738754696e-16,
+          "potential_range_eV": 0.56,
+          "mean_density_e_per_A3": null,
+          "maximum_abs_density_e_per_A3": null,
+          "density_status": "UNAVAILABLE"
+        }
+      ],
+      "selected_window": null,
+      "discontinuity_count": 0,
+      "jump_threshold_eV": 0.1
+    },
+    "upper": {
+      "status": "NO_CONFIRMED_PLATEAU",
+      "geometric_window": {
+        "status": "NONFLAT_OR_TOO_SHORT",
+        "z_start_A": 22.0,
+        "z_end_A": 29.0,
+        "width_A": 7.0,
+        "points": 15,
+        "mean_potential_eV": 2.04,
+        "slope_eV_per_A": 0.08000000000000004,
+        "detrended_max_residual_eV": 8.881784197001252e-16,
+        "potential_range_eV": 0.5599999999999998,
+        "mean_density_e_per_A3": null,
+        "maximum_abs_density_e_per_A3": null,
+        "density_status": "UNAVAILABLE"
+      },
+      "segments": [
+        {
+          "status": "NONFLAT_OR_TOO_SHORT",
+          "z_start_A": 22.0,
+          "z_end_A": 29.0,
+          "width_A": 7.0,
+          "points": 15,
+          "mean_potential_eV": 2.04,
+          "slope_eV_per_A": 0.08000000000000004,
+          "detrended_max_residual_eV": 8.881784197001252e-16,
+          "potential_range_eV": 0.5599999999999998,
+          "mean_density_e_per_A3": null,
+          "maximum_abs_density_e_per_A3": null,
+          "density_status": "UNAVAILABLE"
+        }
+      ],
+      "selected_window": null,
+      "discontinuity_count": 0,
+      "jump_threshold_eV": 0.1
+    },
+    "upper_minus_lower_potential_eV": null,
+    "interpretation": "Candidate windows only; human review required. No forced plateau or vacuum alignment."
+  },
+  "charged": {
+    "lower": {
+      "status": "NO_CONFIRMED_PLATEAU",
+      "geometric_window": {
+        "status": "CHARGE_IN_VACUUM_WARNING",
+        "z_start_A": 1.0,
+        "z_end_A": 8.0,
+        "width_A": 7.0,
+        "points": 15,
+        "mean_potential_eV": 3.0,
+        "slope_eV_per_A": 4.594197023805007e-17,
+        "detrended_max_residual_eV": 4.440892098500626e-16,
+        "potential_range_eV": 0.0,
+        "mean_density_e_per_A3": 0.0010000000000000005,
+        "maximum_abs_density_e_per_A3": 0.001,
+        "density_status": "AVAILABLE"
+      },
+      "segments": [
+        {
+          "status": "CHARGE_IN_VACUUM_WARNING",
+          "z_start_A": 1.0,
+          "z_end_A": 8.0,
+          "width_A": 7.0,
+          "points": 15,
+          "mean_potential_eV": 3.0,
+          "slope_eV_per_A": 4.594197023805007e-17,
+          "detrended_max_residual_eV": 4.440892098500626e-16,
+          "potential_range_eV": 0.0,
+          "mean_density_e_per_A3": 0.0010000000000000005,
+          "maximum_abs_density_e_per_A3": 0.001,
+          "density_status": "AVAILABLE"
+        }
+      ],
+      "selected_window": null,
+      "discontinuity_count": 0,
+      "jump_threshold_eV": 0.1
+    },
+    "upper": {
+      "status": "NO_CONFIRMED_PLATEAU",
+      "geometric_window": {
+        "status": "CHARGE_IN_VACUUM_WARNING",
+        "z_start_A": 22.0,
+        "z_end_A": 29.0,
+        "width_A": 7.0,
+        "points": 15,
+        "mean_potential_eV": 4.0,
+        "slope_eV_per_A": -2.6883314987356267e-17,
+        "detrended_max_residual_eV": 8.881784197001252e-16,
+        "potential_range_eV": 0.0,
+        "mean_density_e_per_A3": 0.0010000000000000005,
+        "maximum_abs_density_e_per_A3": 0.001,
+        "density_status": "AVAILABLE"
+      },
+      "segments": [
+        {
+          "status": "CHARGE_IN_VACUUM_WARNING",
+          "z_start_A": 22.0,
+          "z_end_A": 29.0,
+          "width_A": 7.0,
+          "points": 15,
+          "mean_potential_eV": 4.0,
+          "slope_eV_per_A": -2.6883314987356267e-17,
+          "detrended_max_residual_eV": 8.881784197001252e-16,
+          "potential_range_eV": 0.0,
+          "mean_density_e_per_A3": 0.0010000000000000005,
+          "maximum_abs_density_e_per_A3": 0.001,
+          "density_status": "AVAILABLE"
+        }
+      ],
+      "selected_window": null,
+      "discontinuity_count": 0,
+      "jump_threshold_eV": 0.1
+    },
+    "upper_minus_lower_potential_eV": null,
+    "interpretation": "Candidate windows only; human review required. No forced plateau or vacuum alignment."
+  },
+  "ambiguous": {
+    "lower": {
+      "status": "AMBIGUOUS_MULTIPLE_WINDOWS",
+      "geometric_window": {
+        "status": "NONFLAT_OR_TOO_SHORT",
+        "z_start_A": 1.0,
+        "z_end_A": 8.0,
+        "width_A": 7.0,
+        "points": 15,
+        "mean_potential_eV": 3.533333333333333,
+        "slope_eV_per_A": 0.19999999999999993,
+        "detrended_max_residual_eV": 0.4666666666666668,
+        "potential_range_eV": 1.0,
+        "mean_density_e_per_A3": null,
+        "maximum_abs_density_e_per_A3": null,
+        "density_status": "UNAVAILABLE"
+      },
+      "segments": [
+        {
+          "status": "CANDIDATE_PLATEAU",
+          "z_start_A": 1.0,
+          "z_end_A": 4.0,
+          "width_A": 3.0,
+          "points": 7,
+          "mean_potential_eV": 3.0,
+          "slope_eV_per_A": -1.8701371287395478e-16,
+          "detrended_max_residual_eV": 8.881784197001252e-16,
+          "potential_range_eV": 0.0,
+          "mean_density_e_per_A3": null,
+          "maximum_abs_density_e_per_A3": null,
+          "density_status": "UNAVAILABLE"
+        },
+        {
+          "status": "CANDIDATE_PLATEAU",
+          "z_start_A": 4.5,
+          "z_end_A": 8.0,
+          "width_A": 3.5,
+          "points": 8,
+          "mean_potential_eV": 4.0,
+          "slope_eV_per_A": -1.9767827697402298e-16,
+          "detrended_max_residual_eV": 8.881784197001252e-16,
+          "potential_range_eV": 0.0,
+          "mean_density_e_per_A3": null,
+          "maximum_abs_density_e_per_A3": null,
+          "density_status": "UNAVAILABLE"
+        }
+      ],
+      "selected_window": null,
+      "discontinuity_count": 1,
+      "jump_threshold_eV": 0.1
+    },
+    "upper": {
+      "status": "CANDIDATE_PLATEAU",
+      "geometric_window": {
+        "status": "CANDIDATE_PLATEAU",
+        "z_start_A": 22.0,
+        "z_end_A": 29.0,
+        "width_A": 7.0,
+        "points": 15,
+        "mean_potential_eV": 4.0,
+        "slope_eV_per_A": -2.6883314987356267e-17,
+        "detrended_max_residual_eV": 8.881784197001252e-16,
+        "potential_range_eV": 0.0,
+        "mean_density_e_per_A3": null,
+        "maximum_abs_density_e_per_A3": null,
+        "density_status": "UNAVAILABLE"
+      },
+      "segments": [
+        {
+          "status": "CANDIDATE_PLATEAU",
+          "z_start_A": 22.0,
+          "z_end_A": 29.0,
+          "width_A": 7.0,
+          "points": 15,
+          "mean_potential_eV": 4.0,
+          "slope_eV_per_A": -2.6883314987356267e-17,
+          "detrended_max_residual_eV": 8.881784197001252e-16,
+          "potential_range_eV": 0.0,
+          "mean_density_e_per_A3": null,
+          "maximum_abs_density_e_per_A3": null,
+          "density_status": "UNAVAILABLE"
+        }
+      ],
+      "selected_window": {
+        "status": "CANDIDATE_PLATEAU",
+        "z_start_A": 22.0,
+        "z_end_A": 29.0,
+        "width_A": 7.0,
+        "points": 15,
+        "mean_potential_eV": 4.0,
+        "slope_eV_per_A": -2.6883314987356267e-17,
+        "detrended_max_residual_eV": 8.881784197001252e-16,
+        "potential_range_eV": 0.0,
+        "mean_density_e_per_A3": null,
+        "maximum_abs_density_e_per_A3": null,
+        "density_status": "UNAVAILABLE"
+      },
+      "discontinuity_count": 0,
+      "jump_threshold_eV": 0.1
+    },
+    "upper_minus_lower_potential_eV": null,
+    "interpretation": "Candidate windows only; human review required. No forced plateau or vacuum alignment."
+  }
+}
