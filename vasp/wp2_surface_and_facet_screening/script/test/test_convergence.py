@@ -113,10 +113,11 @@ class SequentialPreparationTests(unittest.TestCase):
 
     def test_result_join_requires_case_and_face_source_identity(self):
         prepared = self.request('encut', [600])[0]
-        completed = dict(case_id=prepared['case_id'], static_result_id='fixture-static',
+        completed = dict(case_id=prepared['case_id'], static_result_id='fixture-static', energy_eV=-10,
                          input_settings_verified=True, normal_termination=True, electronic_converged=True)
         energy = dict(surface_id=prepared['surface_id'], face_context=prepared['face_context'],
-                      E_slab_eV=-10, bulk_reference_id='fixture-bulk', Gamma_pair_meV_A2=1,
+                      slab_static_result_id='fixture-static', E_slab_eV=-10,
+                      bulk_reference_id='fixture-bulk', Gamma_pair_meV_A2=1,
                       matched_reference_validated=True)
         record = convergence_record(prepared, completed, energy)
         self.assertTrue(record['matched_reference_validated'])
