@@ -38,6 +38,13 @@ class SurfaceEnergeticsTests(unittest.TestCase):
         self.assertTrue(result["matched_reference_validated"])
         self.assertEqual(result["status"], "COMPUTED_REQUIRES_HUMAN_REVIEW")
 
+    def test_slab_result_identity_is_retained_for_downstream_join(self):
+        result = surface_energy(dict(self.slab, static_result_id="fixture-static"), self.bulk)
+        self.assertEqual(result["slab_static_result_id"], "fixture-static")
+        # Pure arithmetic remains available without a source identity; a later
+        # convergence join must reject that missing provenance.
+        self.assertIsNone(surface_energy(self.slab, self.bulk)["slab_static_result_id"])
+
     def test_equivalent_faces_need_evidence_and_inequivalent_remain_unassigned(self):
         with self.assertRaises(ValueError):
             surface_energy(self.slab, self.bulk, faces_equivalent=True)

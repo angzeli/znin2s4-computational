@@ -104,6 +104,7 @@ def surface_energy(slab, bulk, *, faces_equivalent=None, face_equivalence_eviden
     empty = dict(surface_id=surface_id, face_context=dict(surface_id=surface_id, face_ids=dict(faces)),
                  parent_phase=slab.get("parent_phase"), n_formula_units=units,
                  surface_area_A2=slab.get("surface_area_A2"), E_slab_eV=slab.get("E_slab_eV"),
+                 slab_static_result_id=slab.get("static_result_id"),
                  bulk_reference_id=bulk.get("bulk_reference_id"), e_bulk_eV_fu=None,
                  Gamma_pair_eV_A2=None, Gamma_pair_meV_A2=None,
                  gamma_single_eV_A2=None, gamma_single_meV_A2=None,

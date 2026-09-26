@@ -115,7 +115,9 @@ def compare_cases(baseline, case, *, electronic_relevant, electronic_quantity='w
 def convergence_record(prepared, completed, energetics, *, alignment=None, qualitative=None):
     """Join identified observed outputs to one prepared model, without writing rows.
 
-    The completed reader must verify the input settings and identify its case_id.
+    The completed reader must verify settings and identify its case and static
+    result. Energetics must retain that static identity and exact source energy;
+    shared surface/face labels alone do not distinguish convergence cases.
     Qualitative evidence is supplied explicitly; no reconstruction/localisation
     classification is fabricated from one scalar or an unconverged geometry.
     The returned evidence-rich dictionary feeds compare_cases; schema_record or
@@ -126,6 +128,15 @@ def convergence_record(prepared, completed, energetics, *, alignment=None, quali
     if (energetics.get('surface_id') != prepared['surface_id']
             or energetics.get('face_context') != prepared['face_context']):
         raise ValueError('Energetics belongs to a different surface/face context')
+    source_id = completed.get('static_result_id')
+    if (not isinstance(source_id, str) or not source_id.strip()
+            or energetics.get('slab_static_result_id') != source_id):
+        raise ValueError('Energetics must identify the same observed static result')
+    energies = (completed.get('energy_eV'), energetics.get('E_slab_eV'))
+    if (any(isinstance(value, bool) or not isinstance(value, (int, float))
+            or not math.isfinite(value) for value in energies)
+            or energies[0] != energies[1]):
+        raise ValueError('Energetics energy must exactly match the observed static energy')
     if qualitative and set(qualitative) - {*QUALITATIVE_FLAGS, 'geometry_change_flag', 'notes'}:
         raise ValueError('Unknown qualitative evidence fields')
     actual = prepared['actual_value']
